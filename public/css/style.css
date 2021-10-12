@@ -1,0 +1,43 @@
+/*
+
+
+*/
+:root{
+    --primary: #be160e;
+    --light-bg-red: #ecb9b7;
+    --gray-dark-blue: #022b3a;
+    --accent: #1e000e;
+    --medium-blue: #228cdb;
+    --pastel-yellow: #db9d47;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-container{
+    background-color: var(--light-bg-red);
+    
+}
+
+
+.hero-section{
+    background-image: url(../img/woman-buying.jpeg);
+    height: 100vh;
+}
+
+@media (min-width: 1200px){
+
+    .container{
+        max-width:1200px;
+        margin: 0 auto
+    }
+}
