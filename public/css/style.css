@@ -53,6 +53,7 @@ a{
 .buy-btn{
     color: #fff;
     background-color: #1e000e;
+    margin-top: 2rem;
 }
 
 .sell-btn{
@@ -120,6 +121,12 @@ a{
     flex: 1;
 }
 
+.hero-col.left-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .hero-col.right-col{
     background-image: linear-gradient(#00000088, #00000088) ,url(../img/pexels-andrea-piacquadio-919436-crop.jpg);
     background-size: cover;
@@ -131,7 +138,7 @@ a{
 }
 
 .hero-feature-box{
-    margin: 3.2rem 0;
+    /* margin: 3.2rem 0; */
     
     /* border-radius: 8px;
     color: #fff; */
@@ -160,7 +167,7 @@ a{
     content: " ";
     display: block;
     min-width: 300px;
-    height: 400px;
+    min-height: 400px;
     
     
 }
