@@ -15,25 +15,60 @@
 
 <body>
     <div class="hero-container">
+
+        <nav class="navbar">
+            <div class="container nav-container">
+                <span class="logo-container"><img class="logo-top-img" src="{{ asset('img/logo.png') }}" alt=""></span>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Parcerias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Quem somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Fale conosco</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </nav>
         <div class="container">
             <section class="hero-section">
-                <div class="left-col">
-                    <h1>Qual é a boa?</h1>
+                <div class="col hero-col left-col">
+                    <h1 class="heading-primary">O que você procura?</h1>
 
-                    <div class="hero-feature-box buy-box">
-
+                    <div class="hero-feature-box hero-buy-box">
+                        <h2 class="hero-action-heading">Quer Comprar?</h2>
+                        <p class="hero-text">
+                            Contamos com os melhores parceiros, para oferer a você os melhores produtos e serviços!
+                        </p>
+                        <a href="#" class="btn buy-btn">Conheça o nosso Shopping 	&raquo;</a>
                     </div>
-                    <div class="hero-feature-box sell-box">
-                        
-                    </div>
+                    {{-- <div class="hero-feature-box hero-sell-box">
+                        <h2 class="hero-action-heading">Quer vender?</h2>
+                        <p class="hero-text">
+                            Quer vender o seu produto ou serviço aqui? Venha para o nosso programa de parcerias.
+                        </p>
+                        <a href="#" class="btn sell-btn">Torne-se um Parceiro &raquo;</a>
+                    </div> --}}
                 </div>
-                <div class="right-col">
 
+                <div class="col hero-col right-col">
+                    <div class="skew-shape"></div>
                 </div>
+
             </section>
         </div>
-        
+
     </div>
+    <section>
+        <h1>Página ainda em construção</h1>
+    </section>
 
 </body>
 

@@ -8,7 +8,10 @@
     --gray-dark-blue: #022b3a;
     --accent: #1e000e;
     --medium-blue: #228cdb;
+    --medium-deep-blue: #186299;
     --pastel-yellow: #db9d47;
+    --light-bg-yellow: #f1d8b5;
+    --medium-primary: #d25c56;
 
 }
 
@@ -19,25 +22,209 @@
     box-sizing: border-box;
 }
 
+html{
+    font-size: 0.625rem;
+}
+
 body{
     font-family: 'Inter', sans-serif;
+    line-height: 1;
+    color: var(--gray-dark-blue);
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    margin: 0 auto;
+    /* padding: 2rem; */
+}
+
+.btn{
+    display: inline-block;
+    padding: 1.6rem;
+    margin: 1.6rem 1.6rem 0.4rem 0;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 1.6rem;
+}
+
+.buy-btn{
+    color: #fff;
+    background-color: #1e000e;
+}
+
+.sell-btn{
+    color: var(--medium-deep-blue);
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar{    
+    background-color: #fff;
+    height: 6rem;
+    padding: 1rem;
+    
+}
+
+.navbar-nav{
+    padding-right: 3.2rem;
+}
+
+.nav-item{
+    display: inline-block;
+
+    padding: 8px;
+}
+
+.nav-link{
+    color: var(--gray-dark-blue);
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+
+.logo-top-img{
+    height: 4rem;
+    padding-left: 3.2rem;
 }
 
 .hero-container{
-    background-color: var(--light-bg-red);
+    background-color: #f1d8b5;
     
+}
+
+.heading-primary{
+    font-size: 3.2rem;
+    letter-spacing: -0.5px;
 }
 
 
 .hero-section{
-    background-image: url(../img/woman-buying.jpeg);
-    height: 100vh;
+    display: flex;
+    gap: 3.2rem;
+    flex-direction: column;
+    background-size: cover;
+    height: auto;
+    /* overflow: hidden; */
+    /* padding: 3.2rem; */
+}
+
+.hero-col{
+    padding: 2.4rem;
+    display: block;
+    flex: 1;
+}
+
+.hero-col.right-col{
+    background-image: linear-gradient(#00000088, #00000088) ,url(../img/pexels-andrea-piacquadio-919436-crop.jpg);
+    background-size: cover;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    flex: 1.4;
+    height: 440px;
+}
+
+.hero-feature-box{
+    margin: 3.2rem 0;
+    
+    /* border-radius: 8px;
+    color: #fff; */
+}
+
+.hero-buy-box{
+    
+   
+}
+
+.hero-sell-box{
+    /* background-color: var(--medium-deep-blue); */
+}
+
+.hero-action-heading{
+    font-size: 2.4rem;
+}
+
+.hero-text{
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    line-height: 1.4;
+}
+
+.skew-shape::before{
+    content: " ";
+    display: block;
+    min-width: 300px;
+    height: 400px;
+    
+    
+}
+
+.skew-shape{
+    width: 360px;
+    height: 100%;
+    background-color: var(--light-bg-yellow);
+
+    transform: skew(-12deg);
+    margin-left: -296px;
+}
+
+
+
+
+@media(min-width: 576px){
+    .hero-section{
+        display: flex;
+        flex-direction: row;
+        gap: 3.2rem;
+        flex-wrap: wrap;
+        background-size: cover;
+        height: 440px;
+        /* overflow: hidden; */
+        /* padding: 3.2rem; */
+    }
+
+    .heading-primary{
+        font-size: 4rem;
+    }
+
+    .hero-action-heading{
+        font-size: 3.2rem;
+    }
+}
+
+@media(min-width: 768px){
+    .heading-primary{
+        font-size: 4.8rem;
+    }
+
+    .hero-text{
+        margin-top: 1.2rem;
+        font-size: 2rem;
+        line-height: 1.6;
+    }
+    
+}
+
+@media(min-width: 992px){
+    .heading-primary{
+        font-size: 6rem;
+    }
+
+    .hero-action-heading{
+        font-size: 4rem;   
+    }
 }
 
 @media (min-width: 1200px){
 
     .container{
         max-width:1200px;
-        margin: 0 auto
+        /* padding: 3.2rem; */
     }
 }
