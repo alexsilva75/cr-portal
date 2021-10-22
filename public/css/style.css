@@ -392,13 +392,9 @@
     text-align: center;
 }
 
-
-
-
 /* ******************* */
 /* PARTNERSHIP SECTION */
 /* ******************* */
-
 .section-partnership{
     padding: 4.8rem 2.4rem;
     background-color: #f9e8e7;
@@ -517,3 +513,43 @@
 .address-col{
     padding-bottom: 2.4rem;
 }
+
+/* ******************* */
+/* MAINTENANCE SECTION */
+/* ******************* */
+
+.maintenance{
+    padding: 4.8rem;
+    text-align: center;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.logo-container img{
+    width: 100%;
+}
+
+.maintenance .logo-base{
+    
+}
+
+.maintenance .logo-container{     
+    margin: 200px auto;     
+    /* transform: translateY(200px); */
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; 
+
+    transition: all 1s ease-out;
+    
+}
+
+.maintenance .logo-container.logo-appear{    
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateY(-150%);
+
+}
+

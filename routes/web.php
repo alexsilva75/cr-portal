@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('maintenance');
 });
+
+
+Route::get('/preview', function () {
+    return view('welcome');
+});
