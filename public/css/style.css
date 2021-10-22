@@ -549,7 +549,7 @@
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
-    transform: translateY(-150%);
+    transform: translateY(-150px);
 
 }
 
