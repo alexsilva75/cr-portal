@@ -5,71 +5,315 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CR Market</title>
+    <title>CR Telecom &mdash; Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
 </head>
 
 <body>
-    <div class="hero-container">
 
-        <nav class="navbar">
-            <div class="container nav-container">
-                <span class="logo-container"><img class="logo-top-img" src="{{ asset('img/logo.png') }}" alt=""></span>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Início</a>
+    <header class="header">
+        <a href="#">
+            <img class="logo-top-img" src="{{ asset('img/logo.png') }}" alt="CR Telecom - logo">
+        </a>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li class="main-nav-item">
+                    <a class="main-nav-link" href="">Início</a>
+                </li>
+                <li class="main-nav-item">
+                    <a class="main-nav-link" href="">Quem somos</a>
+                </li>
+                <li class="main-nav-item">
+                    <a class="main-nav-link" href="">Internet</a>
+                </li>
+                <li class="main-nav-item">
+                    <a class="main-nav-link" href="">Parcerias</a>
+                </li>
+                <li class="main-nav-item">
+                    <a class="main-nav-link" href="">Shopping</a>
+                </li>
+                <li class="main-nav-item">
+                    <a class="main-nav-link" href="">Fale conosco</a>
+                </li>
+            </ul>
+        </nav>
+        <button class="btn-mobile-nav">
+            <i class="bi bi-list icon-mobile-nav icon-menu"></i>
+            <i class="bi bi-x-lg icon-mobile-nav icon-close"></i>
+        </button>
+    </header>
+
+    <main>
+        <div class="hero-container">
+            <div class="container">
+                <section class="hero-section">
+                    <div class="col hero-col left-col">
+                        <h1 class="heading-primary">Conectando Você e seus Sonhos!</h1>
+
+                        <div class="hero-description">
+                            <p class="hero-description-text">
+                                O seu provedor de internet agora oferece um programa exclusivo de parcerias para
+                                negócios online.
+                            </p>
+                        </div>
+
+                        <a href="#" class="btn hero-btn">Saiba mais &raquo;</a>
+                        {{-- <div class="hero-feature-box hero-sell-box">
+                            <h2 class="hero-action-heading">Quer vender?</h2>
+                            <p class="hero-text">
+                                Quer vender o seu produto ou serviço aqui? Venha para o nosso programa de parcerias.
+                            </p>
+                            <a href="#" class="btn sell-btn">Torne-se um Parceiro &raquo;</a>
+                        </div> --}}
+                    </div>
+
+                    <div class="col hero-col right-col">
+                        {{-- <div class="skew-shape"></div> --}}
+                    </div>
+
+                </section>
+            </div>
+
+        </div>
+        {{-- <section class="featured-in">
+            <h1></h1>
+        </section> --}}
+
+        <section class="section-features">
+            <div class="features-intro">
+                <div class="features-intro-description">
+                    <h2 class="heading-secondary">
+                        Trazemos para você o poder da Fibra
+                    </h2>
+
+                    <p class="features-text">
+                        Nossos planos fornecem alta velocidade e estabilidade, para que você possa trabalhar,
+                        estudar e se divertir à vontade, sem limite de tráfego e com velocidades que variam de 40Mbps a
+                        120Mbps.
+                    </p>
+                </div>
+
+
+            </div>
+
+            <div class="features-plans">
+                <p class="subheading">Nossos Planos</p>
+                <figure class="features-plan">
+
+                    <div class="features-plan-img people-plan-img">
+
+                    </div>
+
+                    <div class="plan-description people-plan">
+                        <p class="plan-subheading">People</p>
+                        <p>Ideal para assistir suas séries favoritas, estudar e trabalhar em casa.</p>
+                        <p class="plan-speed">40<span>Mbps</span> </p>
+                        <p class="plan-price"><span>R$</span>65,00</p>
+                        <div class="plan-cta">
+                            <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                        </div>
+
+                    </div>
+                </figure>
+
+                <figure class="features-plan ">
+                    <div class="features-plan-img world-plan-img">
+
+                    </div>
+                    <div class="plan-description world-plan">
+                        <p class="plan-subheading">World</p>
+                        <p>Para você que precisa de maior desempenho, em suas atividades profissionais.</p>
+                        <p class="plan-speed">80<span>Mbps</span> </p>
+                        <p class="plan-price"><span>R$</span>85,00</p>
+                        <div class="plan-cta">
+                            <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                        </div>
+
+                    </div>
+
+                </figure>
+
+                <figure class="features-plan">
+                    <div class="features-plan-img  universe-plan-img">
+
+                    </div>
+                    <div class="plan-description universe-plan">
+                        <p class="plan-subheading">Universe</p>
+                        <p>O pacote certo para empresas e para quem depende uma conexão realmente rápida.</p>
+                        <p class="plan-speed">120<span>Mbps</span> </p>
+                        <p class="plan-price"><span>R$</span>105,00</p>
+
+                        <div class="plan-cta">
+                            <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                        </div>
+
+                    </div>
+
+                </figure>
+            </div>
+
+            <div class="features-pre-paid">
+                <p class="subheading">Não quer assinatura?</p>
+                <h3 class="heading-tertiary">Confira nossos pacotes pré-pagos</h3>
+                <p class="description">Temos o pacote certo para você não ficar sem navegar.</p>
+
+                <div class="pre-paid-plans">
+
+                    <div class="pre-paid-plan">
+                        <p class="traffic">2GB*</p>
+                        <span>por apenas</span>
+                        <p class="price">R$ 12,00</p>
+                    </div>
+                    <div class="pre-paid-plan">
+                        <p class="traffic">4GB*</p>
+                        <span>por apenas</span>
+                        <p class="price">R$ 18,00</p>
+                    </div>
+                    <div class="pre-paid-plan">
+                        <p class="traffic">8GB*</p>
+                        <span>por apenas</span>
+                        <p class="price">R$ 28,00</p>
+                    </div>
+                </div>
+
+                <p class="description">*Os valores são pagos por limite de tráfego. O acesso é feito por meio dos
+                    nossos pontos de acesso espalhados pela cidade.</p>
+
+
+                <div class="pre-paid-cta">
+                    <a href="#" class="btn btn-pre-paid">Quero comprar &raquo;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section-partnership">
+            <div class="partnership-description">
+                <h2 class="heading-secondary">Apresentamos o nosso Programa de Parcerias</h2>
+                <p class="partnership-text">
+                    Mais do que um provedor, queremos ser seu parceiro na sua busca por desenvolvimento pessoal e
+                    profissional, que se resumem também em uma melhor qualidade de vida.
+                </p>
+            </div>
+            <div class="partnership-img-container">
+                <figure>
+                    <img class="partnership-img" src="{{ asset('img/partnership.jpg') }}" alt="">
+                </figure>
+            </div>
+            <div class="partnership-description">
+                <h2 class="heading-secondary">Vender Online?</h2>
+                <p class="partnership-text">
+                    Agora disponibilizamos um shopping virtual, inteiramente destinado aos nossos parceiros do comércio
+                    local
+                </p>
+
+                <h2 class="heading-secondary">É Autônomo?</h2>
+                <p class="partnership-text">
+                    Sabemos das dificuldades para anunciar serviços em nossa cidade. Por isso oferecemos a nossa
+                    plataforma para permitir que profissionais possam encontrar novos clientes.
+                </p>
+                <div class="partnership-cta">
+                    <a href="#" class="btn hero-btn">Quero ser parceiro &raquo;</a>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="section-contact">
+            <p class="subheading">Dúvidas?</p>
+            <h2 class="heading-secondary">Fale Conosco!</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label for="nome" class="input-caption">Nome*</label>
+                    <input type="text" name="nome" id="nome" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="input-caption">E-mail*</label>
+                    <input type="text" name="email" id="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="input-caption">Telefone*</label>
+                    <input type="text" name="email" id="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem" class="input-caption">Mensagem</label>
+                    <textarea class="form-control" name="mensagem" id="" cols="30" rows="10"></textarea>
+                </div>
+
+            </form>
+        </section>
+
+
+    </main>
+    <footer class="footer">
+        <div class="social">
+            <div class="logo-col">
+                <img src="{{ asset('img/logo.png') }}" alt="">
+            </div>
+            <div class="social-media-col">
+                <p class="subheading">Mídias sociais</p>
+                <ul class="social-media-list">
+                    <li>
+                        <a href="#"><i class="bi bi-instagram icon-social-media"></i></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Parcerias</a>
+                    <li>
+                        <a href="#">
+                            <i class="bi bi-facebook icon-social-media"></i>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Quem somos</a>
+                    <li>
+                        <a href="#">
+                            <i class="bi bi-twitter icon-social-media"></i>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Fale conosco</a>
+                    <li>
+                        <a href="#">
+                            <i class="bi bi-linkedin icon-social-media"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
-
-
-        </nav>
-        <div class="container">
-            <section class="hero-section">
-                <div class="col hero-col left-col">
-                    <h1 class="heading-primary">O que você procura?</h1>
-
-                    <div class="hero-feature-box hero-buy-box">
-                        <h2 class="hero-action-heading">Quer Comprar?</h2>
-                        <p class="hero-text">
-                            Contamos com os melhores parceiros, para oferer a você os melhores produtos e serviços!
-                        </p>
-                        <a href="#" class="btn buy-btn">Conheça o nosso Shopping 	&raquo;</a>
-                    </div>
-                    {{-- <div class="hero-feature-box hero-sell-box">
-                        <h2 class="hero-action-heading">Quer vender?</h2>
-                        <p class="hero-text">
-                            Quer vender o seu produto ou serviço aqui? Venha para o nosso programa de parcerias.
-                        </p>
-                        <a href="#" class="btn sell-btn">Torne-se um Parceiro &raquo;</a>
-                    </div> --}}
-                </div>
-
-                <div class="col hero-col right-col">
-                    <div class="skew-shape"></div>
-                </div>
-
-            </section>
+            <div class="address-col">
+                <p class="subheading">Endereço</p>
+                <address>
+                    <p>Rua Conselheiro Paranhos, 19 - Centro</p>
+                    <p>Santo Amaro - BA</p>
+                    <p>Tel.: (75) 3241-1952</p>
+                </address>
+            </div>
+            <nav class="footer-nav">
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="#">Início</a>
+                    </li>
+                    <li>
+                        <a href="#">Quem somos</a>
+                    </li>
+                    <li>
+                        <a href="#">Internet</a>
+                    </li>
+                    <li>
+                        <a href="#">Parcerias</a>
+                    </li>
+                    <li>
+                        <a href="#">Fale conosco</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+        <p>CR Telecom &copy; - 2021. Todos os direitos reservados </p>
 
-    </div>
-    <section>
-        <h1>Página ainda em construção</h1>
-    </section>
-
+    </footer>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

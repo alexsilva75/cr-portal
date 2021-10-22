@@ -1,0 +1,145 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+REM = ROOT ELEMENT FONT SIZE (DEFAULT = 16px)
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- FONT WEIGHTS
+Default: 400
+
+- LINE HEIGHTS
+Default: 1
+
+
+
+--- 02 COLORS
+
+- Primary: #be160e
+
+- Tints:
+ #ccd5d8
+ #678089
+
+- Shades: 
+#720d08
+
+- Accents:
+
+- Greys:
+#555
+
+
+--- 03 IMAGES
+
+
+--- 04 SHADOWS
+
+--- 05 BORDER RADIUS
+
+--- 07 WHITESPACE
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+
+
+--- RESPONSIVITY
+
+
+*/
+
+
+
+:root{
+    --primary: #be160e;
+    --primary-shade: #720d08;
+    --light-bg-red: #ecb9b7;
+    --gray-dark-blue: rgb(2, 43, 58);
+    --gray-medium-blue: #678089;
+    --accent: rgb(30, 0, 14);
+    --medium-blue: #228cdb;
+    --medium-deep-blue: #186299;
+    --dark-blue-tint: #ccd5d8;
+    --pastel-yellow: #db9d47;
+    --light-bg-yellow: #f1d8b5;
+    --medium-primary: #d25c56;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 0.625rem;
+    overflow-x: hidden;
+    scroll-behavior: 'smooth';
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+    color: var(--gray-dark-blue);
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    margin: 0 auto;
+    /* padding: 2rem; */
+}
+
+.btn,
+.btn:link,
+.btn:visited{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    display: inline-block;
+    padding: 1.6rem 3.2rem;
+    border-radius: 9px;
+    text-decoration: none;
+}
+
+.heading-primary{
+    font-size: 3.2rem;
+    line-height: 0.9;
+    letter-spacing: -0.5px;
+}
+
+.heading-secondary{
+    font-size: 2.4rem;
+    line-height: 1;
+    letter-spacing: -0.5px;
+}
+
+.heading-tertiary{
+    font-size: 2rem;
+}
+
+.subheading{
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 2.4rem 0;
+    text-align: center;
+}
+
+.description{
+    margin: 2rem 0;
+    font-size: 1.6rem;
+}
+
+
+/* ******************* */
+/* HELPERS AND CONFIGURATIONS */
+/* ******************* */
+
+.margin-bottom-sm{
+    margin-bottom: 2.4rem;
+}
