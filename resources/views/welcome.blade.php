@@ -38,7 +38,7 @@
                     <a class="main-nav-link" href="">Shopping</a>
                 </li>
                 <li class="main-nav-item">
-                    <a class="main-nav-link" href="">Fale conosco</a>
+                    <a class="main-nav-link" href="#section-contact">Fale conosco</a>
                 </li>
             </ul>
         </nav>
@@ -57,12 +57,11 @@
 
                         <div class="hero-description">
                             <p class="hero-description-text">
-                                O seu provedor de internet agora oferece um programa exclusivo de parcerias para
-                                negócios online.
+                                O seu provedor de internet. Agora de cara nova!
                             </p>
                         </div>
 
-                        <a href="#" class="btn hero-btn">Saiba mais &raquo;</a>
+                        <a href="#features-plans" class="btn hero-btn">Conheça nossos planos &raquo;</a>
                         {{-- <div class="hero-feature-box hero-sell-box">
                             <h2 class="hero-action-heading">Quer vender?</h2>
                             <p class="hero-text">
@@ -101,7 +100,7 @@
 
             </div>
 
-            <div class="features-plans">
+            <div id="features-plans" class="features-plans">
                 <p class="subheading">Nossos Planos</p>
                 <figure class="features-plan">
 
@@ -192,7 +191,7 @@
             </div>
         </section>
 
-        <section class="section-partnership">
+        {{-- <section class="section-partnership">
             <div class="partnership-description">
                 <h2 class="heading-secondary">Apresentamos o nosso Programa de Parcerias</h2>
                 <p class="partnership-text">
@@ -223,9 +222,9 @@
 
 
             </div>
-        </section>
+        </section> --}}
 
-        <section class="section-contact">
+        <section id="section-contact" class="section-contact">
             <p class="subheading">Dúvidas?</p>
             <h2 class="heading-secondary">Fale Conosco!</h2>
             <form action="#">
@@ -310,7 +309,7 @@
                 </ul>
             </nav>
         </div>
-        <p>CR Telecom &copy; - 2021. Todos os direitos reservados </p>
+        <p>CR Telecom &copy; - <span class="year">2027</span>. Todos os direitos reservados </p>
 
     </footer>
     <script src="{{ asset('js/script.js') }}"></script>

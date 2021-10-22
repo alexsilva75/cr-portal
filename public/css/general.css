@@ -75,7 +75,7 @@ Default: 1
 html{
     font-size: 0.625rem;
     overflow-x: hidden;
-    scroll-behavior: 'smooth';
+    scroll-behavior: smooth;
 }
 
 body{
@@ -83,6 +83,7 @@ body{
     line-height: 1;
     color: var(--gray-dark-blue);
     overflow-x: hidden;
+    scroll-behavior: 'smooth';
 }
 
 a{

@@ -23,7 +23,9 @@
         </section>
 
     </main>
-
+    <footer class="footer">
+        <p>CR Telecom &copy; - <span class="year">2021</span>. Todos os direitos reservados </p>
+    </footer>
     <script>
         function animateLogo() {
             let logoContainerEl = document.querySelector('.logo-container');
