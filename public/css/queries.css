@@ -191,6 +191,18 @@
     .btn-mobile-nav {
         display: none;
     }
+
+    .pre-paid-plan {
+        padding: 4.8rem;
+    }
+
+    .traffic {
+        font-size: 5.6rem;
+    }
+
+    .pre-paid-plan .price {
+        font-size: 3.2rem;
+    }
 }
 
 @media (min-width: 75em) {
@@ -210,5 +222,18 @@
 
     .contact-container {
         max-width: 1200px;
+    }
+
+    .features-pre-paid {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .traffic {
+        font-size: 6.4rem;
+    }
+
+    .pre-paid-plan .price {
+        font-size: 4.8rem;
     }
 }
