@@ -37,7 +37,13 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .hero-section .right-col {
+    .hero-col.right-col {
+        background-image: linear-gradient(#00000088, #00000088),
+            url(../img/pexels-andrea-piacquadio-920382_compressed.jpg);
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .hero-col.right-col::before {
