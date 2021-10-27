@@ -47,9 +47,7 @@ Default: 1
 
 */
 
-
-
-:root{
+:root {
     --primary: #be160e;
     --primary-shade: #720d08;
     --light-bg-red: #ecb9b7;
@@ -62,42 +60,40 @@ Default: 1
     --pastel-yellow: #db9d47;
     --light-bg-yellow: #f1d8b5;
     --medium-primary: #d25c56;
-
 }
 
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
-    font-size: 0.625rem;
+html {
+    font-size: 62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
-body{
-    font-family: 'Inter', sans-serif;
+body {
+    font-family: "Inter", sans-serif;
     line-height: 1;
     color: var(--gray-dark-blue);
     overflow-x: hidden;
-    scroll-behavior: 'smooth';
+    scroll-behavior: "smooth";
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.container{
+.container {
     margin: 0 auto;
     /* padding: 2rem; */
 }
 
 .btn,
 .btn:link,
-.btn:visited{
+.btn:visited {
     color: #fff;
     font-size: 2rem;
     font-weight: 600;
@@ -107,23 +103,23 @@ a{
     text-decoration: none;
 }
 
-.heading-primary{
+.heading-primary {
     font-size: 3.2rem;
     line-height: 0.9;
     letter-spacing: -0.5px;
 }
 
-.heading-secondary{
+.heading-secondary {
     font-size: 2.4rem;
     line-height: 1;
     letter-spacing: -0.5px;
 }
 
-.heading-tertiary{
+.heading-tertiary {
     font-size: 2rem;
 }
 
-.subheading{
+.subheading {
     text-transform: uppercase;
     font-size: 1.4rem;
     font-weight: 500;
@@ -131,16 +127,15 @@ a{
     text-align: center;
 }
 
-.description{
+.description {
     margin: 2rem 0;
     font-size: 1.6rem;
 }
-
 
 /* ******************* */
 /* HELPERS AND CONFIGURATIONS */
 /* ******************* */
 
-.margin-bottom-sm{
+.margin-bottom-sm {
     margin-bottom: 2.4rem;
 }

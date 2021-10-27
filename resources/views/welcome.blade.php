@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/general.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/queries.css') }}">
 
 
 </head>
@@ -99,9 +100,9 @@
 
 
             </div>
-
+            <p class="subheading">Nossos Planos</p>
             <div id="features-plans" class="features-plans">
-                <p class="subheading">Nossos Planos</p>
+
                 <figure class="features-plan">
 
                     <div class="features-plan-img people-plan-img">
@@ -110,7 +111,8 @@
 
                     <div class="plan-description people-plan">
                         <p class="plan-subheading">People</p>
-                        <p>Ideal para assistir suas séries favoritas, estudar e trabalhar em casa.</p>
+                        <p class="plan-desc-p">Ideal para assistir suas séries favoritas, estudar, jogar e trabalhar
+                            em home office.</p>
                         <p class="plan-speed">40<span>Mbps</span> </p>
                         <p class="plan-price"><span>R$</span>65,00</p>
                         <div class="plan-cta">
@@ -126,7 +128,8 @@
                     </div>
                     <div class="plan-description world-plan">
                         <p class="plan-subheading">World</p>
-                        <p>Para você que precisa de maior desempenho, em suas atividades profissionais.</p>
+                        <p class="plan-desc-p">Para você que precisa de maior desempenho, em suas atividades
+                            profissionais.</p>
                         <p class="plan-speed">80<span>Mbps</span> </p>
                         <p class="plan-price"><span>R$</span>85,00</p>
                         <div class="plan-cta">
@@ -143,7 +146,7 @@
                     </div>
                     <div class="plan-description universe-plan">
                         <p class="plan-subheading">Universe</p>
-                        <p>O pacote certo para empresas e para quem depende uma conexão realmente rápida.</p>
+                        <p class="plan-desc-p">O pacote certo para empresas e para quem depende de velocidade.</p>
                         <p class="plan-speed">120<span>Mbps</span> </p>
                         <p class="plan-price"><span>R$</span>105,00</p>
 
@@ -225,30 +228,45 @@
         </section> --}}
 
         <section id="section-contact" class="section-contact">
-            <p class="subheading">Dúvidas?</p>
-            <h2 class="heading-secondary">Fale Conosco!</h2>
-            <form action="#">
-                <div class="form-group">
-                    <label for="nome" class="input-caption">Nome*</label>
-                    <input type="text" name="nome" id="nome" class="form-control" required>
+
+            <div class="contact-container">
+                <div class="contact-left-col">
+                    {{-- <p class="contact-icon-p" > <span class="contact-icon-container"><i class="bi bi-envelope icon-contact"></i></span> </p> --}}
+
                 </div>
 
-                <div class="form-group">
-                    <label for="email" class="input-caption">E-mail*</label>
-                    <input type="text" name="email" id="email" class="form-control" required>
+
+                <div class="contact-form-container">
+
+                    <p class="subheading">Dúvidas?</p>
+                    <h2 class="heading-secondary">Fale Conosco!</h2>
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="nome" class="input-caption">Nome*</label>
+                            <input type="text" name="nome" id="nome" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="input-caption">E-mail*</label>
+                            <input type="text" name="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="input-caption">Telefone*</label>
+                            <input type="text" name="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem" class="input-caption">Mensagem</label>
+                            <textarea class="form-control" name="mensagem" id="" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <button class="btn btn-contact-send"><i class="bi bi-envelope icon-contact"></i> Enviar</button>
+                    </form>
                 </div>
 
-                <div class="form-group">
-                    <label for="email" class="input-caption">Telefone*</label>
-                    <input type="text" name="email" id="email" class="form-control" required>
-                </div>
 
-                <div class="form-group">
-                    <label for="mensagem" class="input-caption">Mensagem</label>
-                    <textarea class="form-control" name="mensagem" id="" cols="30" rows="10"></textarea>
-                </div>
-
-            </form>
+            </div>
         </section>
 
 

@@ -1,57 +1,214 @@
-
-
-@media(min-width: 576px){
-    .hero-section{
+/* @media (min-width: 576px) {
+    .hero-section {
         display: flex;
         flex-direction: row;
         gap: 3.2rem;
         flex-wrap: wrap;
         background-size: cover;
         height: 440px;
-        /* overflow: hidden; */
-        /* padding: 3.2rem; */
+  
     }
 
-    .heading-primary{
+    .heading-primary {
         font-size: 4rem;
     }
 
-    .hero-action-heading{
+    .hero-action-heading {
         font-size: 3.2rem;
     }
 
-    .logo-container img{
+    .logo-container img {
         width: 480px;
+    }
+} */
+
+@media (min-width: 40em) {
+    html {
+        font-size: 72%;
+    }
+
+    .hero-btn:link,
+    .hero-btn:visited {
+        font-size: 1.4rem;
+        padding: 1.6rem 1.2rem;
+    }
+
+    .hero-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-section .right-col {
+    }
+
+    .hero-col.right-col::before {
+        background-color: #fff;
+    }
+
+    .hero-col.right-col::after {
+        background-color: var(--dark-blue-tint);
+    }
+
+    .heading-primary {
+        font-size: 4rem;
+    }
+
+    .features-text {
+        font-size: 2rem;
+    }
+
+    .plan-desc-p {
+        font-size: 1.8rem;
+    }
+
+    .pre-paid-plans {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .pre-paid-plan {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.4rem;
+    }
+    .logo-col img {
+        max-width: 48rem;
     }
 }
 
-@media(min-width: 768px){
-    .heading-primary{
+@media (min-width: 768px) {
+    .heading-primary {
         font-size: 4.8rem;
     }
 
-    .hero-text{
+    .hero-text {
         margin-top: 1.2rem;
         font-size: 2rem;
         line-height: 1.6;
     }
-    
+
+    .features-plans {
+        flex-direction: row;
+    }
+
+    .features-plan {
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .features-plan-img {
+        min-height: 24rem;
+    }
+
+    .btn-plan:link,
+    .btn-plan:visited {
+        padding: 0.8rem 1rem;
+        font-size: 1.4rem;
+    }
+
+    .contact-container {
+        display: flex;
+        margin: 0 auto;
+    }
+    .section-contact {
+    }
+
+    .contact-left-col {
+        flex: 1.2;
+        background-image: linear-gradient(
+                to bottom right,
+                rgba(30, 0, 14, 0.7),
+                rgba(30, 0, 14, 0.7)
+            ),
+            url("../img/message-woman-v.jpg");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+    }
+
+    .contact-form-container {
+        flex: 1.8;
+    }
+
+    .footer .social {
+        grid-template-columns: 1fr 1fr;
+        gap: 4.8rem;
+    }
+
+    .social-media-list {
+        /* flex-direction: column; */
+    }
+
+    .footer-nav {
+        grid-row: 1;
+        grid-column: 2;
+    }
+
+    .footer-nav-list {
+        align-items: flex-start;
+    }
+
+    .address-col {
+        text-align: left;
+    }
 }
 
-@media(min-width: 992px){
-    .heading-primary{
+@media (min-width: 992px) {
+    .heading-primary {
         font-size: 6rem;
     }
 
-    .hero-action-heading{
-        font-size: 4rem;   
+    .hero-action-heading {
+        font-size: 4rem;
+    }
+
+    .footer .social {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 4.8rem;
+    }
+
+    .main-nav {
+        opacity: 1;
+
+        pointer-events: auto;
+
+        visibility: visible;
+        transform: translateX(0);
+        position: relative;
+        width: auto;
+        height: auto;
+    }
+
+    .main-nav-list {
+        flex-direction: row;
+        gap: 3.2rem;
+    }
+
+    .main-nav-link:link,
+    .main-nav-link:visited {
+        font-size: 1.6rem;
+    }
+
+    .btn-mobile-nav {
+        display: none;
     }
 }
 
-@media (min-width: 1200px){
-
-    .container{
-        max-width:1200px;
+@media (min-width: 75em) {
+    .container {
+        max-width: 1200px;
         /* padding: 3.2rem; */
+    }
+
+    .hero-col.right-col::before,
+    .hero-col.right-col::after {
+        background-color: var(--dark-blue-tint);
+    }
+
+    .hero-container {
+        border-bottom-right-radius: 0;
+    }
+
+    .contact-container {
+        max-width: 1200px;
     }
 }
