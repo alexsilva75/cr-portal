@@ -147,6 +147,7 @@
     /* border-radius: 11px; */
     border-top-left-radius: 11px;
     border-bottom-right-radius: 11px;
+    position: relative;
 }
 
 .hero-col.right-col::before {
@@ -154,6 +155,9 @@
     display: block;
     width: 100%;
     height: 18rem;
+    position: absolute;
+    top: 0;
+    right: 0;
     transform: translate(80%, -60%);
     background-color: var(--dark-blue-tint);
     border-radius: 11px;
@@ -164,6 +168,9 @@
     display: block;
     width: 100%;
     height: 18rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     transform: translate(-80%, 60%);
     background-color: #fff;
     border-radius: 11px;
@@ -269,6 +276,11 @@
     padding: 1.8rem;
     font-size: 1.4rem;
     line-height: 1.4;
+    transition: all 0.5s;
+}
+
+.plan-description:hover {
+    background-color: var(--dark-blue-tint);
 }
 
 .plan-subheading {
@@ -334,6 +346,12 @@
     justify-content: space-between;
     align-items: center;
     background-color: #ccd5d8;
+
+    transition: all 0.5s;
+}
+
+.pre-paid-plan:hover {
+    transform: scale(1.1);
 }
 
 .pre-paid-plan .price {

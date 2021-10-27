@@ -32,12 +32,12 @@
                 <li class="main-nav-item">
                     <a class="main-nav-link" href="">Internet</a>
                 </li>
-                <li class="main-nav-item">
+                {{-- <li class="main-nav-item">
                     <a class="main-nav-link" href="">Parcerias</a>
                 </li>
                 <li class="main-nav-item">
                     <a class="main-nav-link" href="">Shopping</a>
-                </li>
+                </li> --}}
                 <li class="main-nav-item">
                     <a class="main-nav-link" href="#section-contact">Fale conosco</a>
                 </li>
@@ -113,10 +113,13 @@
                         <p class="plan-subheading">People</p>
                         <p class="plan-desc-p">Ideal para assistir suas séries favoritas, estudar, jogar e trabalhar
                             em home office.</p>
-                        <p class="plan-speed">40<span>Mbps</span> </p>
-                        <p class="plan-price"><span>R$</span>65,00</p>
-                        <div class="plan-cta">
-                            <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+
+                        <div>
+                            <p class="plan-speed">40<span>Mbps</span> </p>
+                            <p class="plan-price"><span>R$</span>65,00</p>
+                            <div class="plan-cta">
+                                <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                            </div>
                         </div>
 
                     </div>
@@ -130,12 +133,14 @@
                         <p class="plan-subheading">World</p>
                         <p class="plan-desc-p">Para você que precisa de maior desempenho, em suas atividades
                             profissionais.</p>
-                        <p class="plan-speed">80<span>Mbps</span> </p>
-                        <p class="plan-price"><span>R$</span>85,00</p>
-                        <div class="plan-cta">
-                            <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
-                        </div>
 
+                        <div>
+                            <p class="plan-speed">80<span>Mbps</span> </p>
+                            <p class="plan-price"><span>R$</span>85,00</p>
+                            <div class="plan-cta">
+                                <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                            </div>
+                        </div>
                     </div>
 
                 </figure>
@@ -147,13 +152,15 @@
                     <div class="plan-description universe-plan">
                         <p class="plan-subheading">Universe</p>
                         <p class="plan-desc-p">O pacote certo para empresas e para quem depende de velocidade.</p>
-                        <p class="plan-speed">120<span>Mbps</span> </p>
-                        <p class="plan-price"><span>R$</span>105,00</p>
 
-                        <div class="plan-cta">
-                            <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                        <div>
+                            <p class="plan-speed">120<span>Mbps</span> </p>
+                            <p class="plan-price"><span>R$</span>105,00</p>
+
+                            <div class="plan-cta">
+                                <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                            </div>
                         </div>
-
                     </div>
 
                 </figure>
