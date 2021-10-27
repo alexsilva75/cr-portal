@@ -87,6 +87,7 @@
         <section class="section-features">
             <div class="features-intro">
                 <div class="features-intro-description">
+                    <p class="subheading">Acesso à Internet?</p>
                     <h2 class="heading-secondary">
                         Trazemos para você o poder da Fibra
                     </h2>

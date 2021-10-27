@@ -450,6 +450,7 @@
     color: #fff;
     font-size: 1.8rem;
     /* padding: 0 0 2.4rem 0; */
+    border-top-left-radius: 11px;
 }
 
 .contact-form-container {
@@ -465,6 +466,51 @@
 
 .section-contact *:focus {
     box-shadow: 0 0 0 0.8rem #fdf2e998;
+}
+
+.contact-left-col {
+    background-image: linear-gradient(
+            to bottom right,
+            rgba(30, 0, 14, 0.7),
+            rgba(30, 0, 14, 0.7)
+        ),
+        url("../img/message-woman.jpg");
+    background-size: cover;
+    min-height: 24rem;
+    /* border-radius: 11px; */
+    overflow: hidden;
+    margin: 2.4rem 0 0 0;
+    position: relative;
+
+    border-bottom-right-radius: 11px;
+    border-top-left-radius: 11px;
+}
+
+.contact-left-col::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 18rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(80%, -60%);
+    background-color: #fff;
+    border-radius: 11px;
+}
+
+.contact-left-col::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 18rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-80%, 60%);
+    background-color: var(--accent);
+    border-radius: 11px;
 }
 
 .input-caption {
@@ -483,20 +529,6 @@
 .btn-contact-send {
     background-color: #00000000;
     border: 2px solid #fff;
-}
-
-.contact-left-col {
-    background-image: linear-gradient(
-            to bottom right,
-            rgba(30, 0, 14, 0.7),
-            rgba(30, 0, 14, 0.7)
-        ),
-        url("../img/message-woman.jpg");
-    background-size: cover;
-    min-height: 24rem;
-    /* border-radius: 11px; */
-    overflow: hidden;
-    margin: 2.4rem 0 0 0;
 }
 
 /* ******************* */
