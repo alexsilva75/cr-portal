@@ -39,7 +39,7 @@
 
     .hero-col.right-col {
         background-image: linear-gradient(#00000088, #00000088),
-            url(../img/pexels-andrea-piacquadio-920382_compressed.jpg);
+            url(../img/optimal/woman-laptop-square.jpg);
 
         background-size: cover;
         background-position: center;
@@ -109,6 +109,10 @@
         min-height: 24rem;
     }
 
+    .universe-plan-img {
+        background-position: top;
+    }
+
     .btn-plan:link,
     .btn-plan:visited {
         padding: 0.8rem 1rem;
@@ -130,7 +134,7 @@
                 rgba(30, 0, 14, 0.7),
                 rgba(30, 0, 14, 0.7)
             ),
-            url("../img/message-woman-v.jpg");
+            url("../img/optimal/message-woman-v.jpg");
         background-size: cover;
         background-position: center;
         margin: 0;
@@ -200,6 +204,33 @@
 
     .hero-action-heading {
         font-size: 4rem;
+    }
+
+    .people-plan-img {
+        background-image: linear-gradient(
+                to bottom right,
+                rgba(114, 13, 8, 0.3),
+                rgba(114, 13, 8, 0.5)
+            ),
+            url("../img/optimal/woman-cell-h.jpg");
+    }
+
+    .world-plan-img {
+        background-image: linear-gradient(
+                to bottom right,
+                rgba(30, 0, 14, 0.3),
+                rgba(30, 0, 14, 0.5)
+            ),
+            url("../img/optimal/happy-man-cell-h.jpg");
+    }
+
+    .universe-plan-img {
+        background-image: linear-gradient(
+                to bottom right,
+                rgba(2, 43, 58, 0.3),
+                rgba(2, 43, 58, 0.5)
+            ),
+            url("../img/optimal/woman-tablet-h.jpg");
     }
 
     .footer .social {

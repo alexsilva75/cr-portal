@@ -24,13 +24,13 @@
         <nav class="main-nav">
             <ul class="main-nav-list">
                 <li class="main-nav-item">
-                    <a class="main-nav-link" href="">Início</a>
+                    <a class="main-nav-link" href="#">Início</a>
                 </li>
                 <li class="main-nav-item">
-                    <a class="main-nav-link" href="">Quem somos</a>
+                    <a class="main-nav-link" href="#">Quem somos</a>
                 </li>
                 <li class="main-nav-item">
-                    <a class="main-nav-link" href="">Internet</a>
+                    <a class="main-nav-link" href="#section-features">Internet</a>
                 </li>
                 {{-- <li class="main-nav-item">
                     <a class="main-nav-link" href="">Parcerias</a>
@@ -84,7 +84,7 @@
             <h1></h1>
         </section> --}}
 
-        <section class="section-features">
+        <section id="section-features" class="section-features">
             <div class="features-intro">
                 <div class="features-intro-description">
                     <p class="subheading">Acesso à Internet?</p>

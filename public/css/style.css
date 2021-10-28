@@ -127,6 +127,8 @@
 .hero-container {
     background-color: #ccd5d8;
     border-bottom-right-radius: 11px;
+    /* border-top: 1px solid #fff; */
+    /* background-clip: content-box; */
 }
 
 .hero-section {
@@ -138,6 +140,7 @@
     height: auto;
     /* overflow: hidden; */
     /* padding: 3.2rem; */
+    overflow: hidden;
 }
 
 .hero-col {
@@ -153,7 +156,7 @@
 
 .hero-col.right-col {
     background-image: linear-gradient(#00000088, #00000088),
-        url(../img/pexels-andrea-piacquadio-920382_compressed.jpg);
+        url(../img/optimal/woman-laptop-square.jpg);
 
     background-size: cover;
     background-position: center;
@@ -269,7 +272,7 @@
             rgba(114, 13, 8, 0.3),
             rgba(114, 13, 8, 0.5)
         ),
-        url("../img/woman-cell-720.jpg");
+        url("../img/optimal/woman-cell-v.jpg");
 }
 
 .world-plan-img {
@@ -278,7 +281,7 @@
             rgba(30, 0, 14, 0.3),
             rgba(30, 0, 14, 0.5)
         ),
-        url("../img/happy-man-cell-v.jpg");
+        url("../img/optimal/happy-man-cell-v.jpg");
 }
 
 .universe-plan-img {
@@ -287,7 +290,7 @@
             rgba(2, 43, 58, 0.3),
             rgba(2, 43, 58, 0.5)
         ),
-        url("../img/woman-tablet-v.jpg");
+        url("../img/optimal/woman-tablet-v.jpg");
 }
 
 .plan-description {
@@ -493,8 +496,9 @@
             rgba(30, 0, 14, 0.7),
             rgba(30, 0, 14, 0.7)
         ),
-        url("../img/message-woman.jpg");
+        url("../img/optimal/message-woman-h.jpg");
     background-size: cover;
+    background-position: center;
     min-height: 24rem;
     /* border-radius: 11px; */
     overflow: hidden;
