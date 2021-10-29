@@ -80,6 +80,10 @@
             </div>
 
         </div>
+        {{-- <section class="section-resources"> --}}
+        <iframe title="speedtest" width="100%" height="480" frameborder="0"
+            src="https://crtelecom.speedtestcustom.com"></iframe>
+        {{-- </section> --}}
         {{-- <section class="featured-in">
             <h1></h1>
         </section> --}}
