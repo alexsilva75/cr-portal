@@ -58,6 +58,12 @@
         font-size: 4rem;
     }
 
+    .resources-container {
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+        justify-items: center;
+    }
+
     .features-text {
         font-size: 2rem;
     }
@@ -96,6 +102,11 @@
     .hero-btn:visited {
         font-size: 1.8rem;
     }
+
+    .box-resource {
+        max-width: 380px;
+    }
+
     .features-plans {
         flex-direction: row;
     }

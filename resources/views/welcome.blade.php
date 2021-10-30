@@ -75,15 +75,39 @@
                     <div class="col hero-col right-col">
                         {{-- <div class="skew-shape"></div> --}}
                     </div>
-
-                </section>
             </div>
+            </section>
+
 
         </div>
-        {{-- <section class="section-resources"> --}}
-        <iframe title="speedtest" width="100%" height="480" frameborder="0"
-            src="https://crtelecom.speedtestcustom.com"></iframe>
-        {{-- </section> --}}
+        <section class="section-resources">
+            <div class="container">
+                <p class="subheading">Já é nosso cliente?</p>
+                <h2 class="heading-secondary">Recursos para assinantes</h2>
+                <div class="resources-container py-sm">
+
+                    <figure class="box-resource">
+                        <p class="subheading">Teste de velocidade</p>
+                        <div class="box-resource-img">
+                            <a href="{{ url('https://crtelecom.speedtestcustom.com') }}" target="_blank">
+                                <img class="resorce-img" src="{{ asset('img/optimal/speedometer.png') }}" alt="">
+                            </a>
+                        </div>
+                    </figure>
+                    <figure class="box-resource">
+                        <p class="subheading">Central do assinante</p>
+                        <div class="box-resource-img">
+                            <a href="{{ url('https://noivanet.altaredesistemas.com.br/central_assinante/') }}"
+                                target="_blank">
+                                <img class="resorce-img resource-img-fill"
+                                    src="{{ asset('img/optimal/woman-laptop-couch-square.jpg') }}" alt="">
+                            </a>
+                        </div>
+                    </figure>
+                </div>
+
+            </div>
+        </section>
         {{-- <section class="featured-in">
             <h1></h1>
         </section> --}}
@@ -273,7 +297,8 @@
                             <textarea class="form-control" name="mensagem" id="" cols="30" rows="10"></textarea>
                         </div>
 
-                        <button class="btn btn-contact-send"><i class="bi bi-envelope icon-contact"></i> Enviar</button>
+                        <button class="btn btn-contact-send"><i class="bi bi-envelope icon-contact"></i>
+                            Enviar</button>
                     </form>
                 </div>
 

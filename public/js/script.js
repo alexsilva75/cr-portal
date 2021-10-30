@@ -21,25 +21,27 @@ let allLinks = document.querySelectorAll("a:link");
 
 allLinks.forEach((linkEl) => {
     linkEl.addEventListener("click", function (event) {
-        event.preventDefault();
-
         const hrefAttr = linkEl.getAttribute("href");
 
-        if (hrefAttr === "#") {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        }
+        if (hrefAttr === "#" || hrefAttr.startsWith("#")) {
+            event.preventDefault();
+            // alert("Prevent default");
+            if (hrefAttr === "#") {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
+            }
 
-        if (hrefAttr != "#" && hrefAttr.startsWith("#")) {
-            const sectionEl = document.querySelector(hrefAttr);
-            sectionEl.scrollIntoView({ behavior: "smooth" });
-        }
+            if (hrefAttr != "#" && hrefAttr.startsWith("#")) {
+                const sectionEl = document.querySelector(hrefAttr);
+                sectionEl.scrollIntoView({ behavior: "smooth" });
+            }
 
-        if (linkEl.classList.contains("main-nav-link")) {
-            // alert('remove')
-            headerEl.classList.remove("nav-open");
+            if (linkEl.classList.contains("main-nav-link")) {
+                // alert('remove')
+                headerEl.classList.remove("nav-open");
+            }
         }
     });
 });
