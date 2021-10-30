@@ -130,72 +130,75 @@
 
             </div>
             <p class="subheading">Nossos Planos</p>
-            <div id="features-plans" class="features-plans">
+            <div class="container">
+                <div id="features-plans" class="features-plans">
 
-                <figure class="features-plan">
+                    <figure class="features-plan">
 
-                    <div class="features-plan-img people-plan-img">
+                        <div class="features-plan-img people-plan-img">
 
-                    </div>
+                        </div>
 
-                    <div class="plan-description people-plan">
-                        <p class="plan-subheading">People</p>
-                        <p class="plan-desc-p">Ideal para assistir suas séries favoritas, estudar, jogar e trabalhar
-                            em home office.</p>
+                        <div class="plan-description people-plan">
+                            <p class="plan-subheading">People</p>
+                            <p class="plan-desc-p">Ideal para assistir suas séries favoritas, estudar, jogar e
+                                trabalhar
+                                em home office.</p>
 
-                        <div>
-                            <p class="plan-speed">40<span>Mbps</span> </p>
-                            <p class="plan-price"><span>R$</span>65,00</p>
-                            <div class="plan-cta">
-                                <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                            <div>
+                                <p class="plan-speed">40<span>Mbps</span> </p>
+                                <p class="plan-price"><span>R$</span>65,00</p>
+                                <div class="plan-cta">
+                                    <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </figure>
+
+                    <figure class="features-plan ">
+                        <div class="features-plan-img world-plan-img">
+
+                        </div>
+                        <div class="plan-description world-plan">
+                            <p class="plan-subheading">World</p>
+                            <p class="plan-desc-p">Para você que precisa de maior desempenho, em suas atividades
+                                profissionais.</p>
+
+                            <div>
+                                <p class="plan-speed">80<span>Mbps</span> </p>
+                                <p class="plan-price"><span>R$</span>85,00</p>
+                                <div class="plan-cta">
+                                    <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                                </div>
                             </div>
                         </div>
 
-                    </div>
-                </figure>
+                    </figure>
 
-                <figure class="features-plan ">
-                    <div class="features-plan-img world-plan-img">
+                    <figure class="features-plan">
+                        <div class="features-plan-img  universe-plan-img">
 
-                    </div>
-                    <div class="plan-description world-plan">
-                        <p class="plan-subheading">World</p>
-                        <p class="plan-desc-p">Para você que precisa de maior desempenho, em suas atividades
-                            profissionais.</p>
+                        </div>
+                        <div class="plan-description universe-plan">
+                            <p class="plan-subheading">Universe</p>
+                            <p class="plan-desc-p">O pacote certo para empresas e para quem depende de velocidade.
+                            </p>
 
-                        <div>
-                            <p class="plan-speed">80<span>Mbps</span> </p>
-                            <p class="plan-price"><span>R$</span>85,00</p>
-                            <div class="plan-cta">
-                                <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                            <div>
+                                <p class="plan-speed">120<span>Mbps</span> </p>
+                                <p class="plan-price"><span>R$</span>105,00</p>
+
+                                <div class="plan-cta">
+                                    <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </figure>
-
-                <figure class="features-plan">
-                    <div class="features-plan-img  universe-plan-img">
-
-                    </div>
-                    <div class="plan-description universe-plan">
-                        <p class="plan-subheading">Universe</p>
-                        <p class="plan-desc-p">O pacote certo para empresas e para quem depende de velocidade.</p>
-
-                        <div>
-                            <p class="plan-speed">120<span>Mbps</span> </p>
-                            <p class="plan-price"><span>R$</span>105,00</p>
-
-                            <div class="plan-cta">
-                                <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </figure>
+                    </figure>
+                </div>
             </div>
-
-            <div class="features-pre-paid">
+            {{-- <div class="features-pre-paid">
                 <p class="subheading">Não quer assinatura?</p>
                 <h3 class="heading-tertiary">Confira nossos pacotes pré-pagos</h3>
                 <p class="description">Temos o pacote certo para você não ficar sem navegar.</p>
@@ -227,7 +230,9 @@
                     <a href="#" class="btn btn-pre-paid">Quero comprar &raquo;</a>
                 </div>
 
-            </div>
+            </div> --}}
+
+
         </section>
 
         {{-- <section class="section-partnership">
