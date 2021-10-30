@@ -368,6 +368,7 @@
 
     </footer>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="https://wbot.chat/index.js" token="a30c4f1aa4c023b7273d24f2de930d5c"></script>
 </body>
 
 </html>
