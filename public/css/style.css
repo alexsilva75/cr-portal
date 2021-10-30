@@ -195,7 +195,7 @@
     bottom: 0;
     left: 0;
     transform: translate(-80%, 60%);
-    background-color: #fff;
+    background-color: #e6eaeb; /*#fff;*/
     border-radius: 11px;
 }
 
