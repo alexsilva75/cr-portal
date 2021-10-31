@@ -74,6 +74,9 @@
 
                     <div class="col hero-col right-col">
                         {{-- <div class="skew-shape"></div> --}}
+                        <div class="hero-img">
+
+                        </div>
                     </div>
             </div>
             </section>

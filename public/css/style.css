@@ -156,21 +156,28 @@
 }
 
 .hero-col.right-col {
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    min-height: 36rem;
+    background-color: #e6eaeb;
+    /* border-radius: 11px; */
+    border-top-left-radius: 11px;
+
+    position: relative;
+}
+
+.right-col .hero-img {
     background-image: linear-gradient(#00000088, #00000088),
         url(../img/optimal/woman-laptop-square.jpg);
 
     background-size: cover;
     background-position: center;
 
-    max-width: 100%;
-    overflow: hidden;
-    padding: 0;
-    min-height: 36rem;
-
-    /* border-radius: 11px; */
-    border-top-left-radius: 11px;
+    width: 100%;
+    height: 100%;
     border-bottom-right-radius: 11px;
-    position: relative;
+    overflow: hidden;
 }
 
 .hero-col.right-col::before {
