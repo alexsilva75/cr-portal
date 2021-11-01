@@ -332,6 +332,10 @@
         font-size: 2.4rem;
     }
 
+    .hero-col.right-col {
+        background-color: #ccd5d8;
+    }
+
     .section-contact {
         border-top-left-radius: 0;
     }
