@@ -1,3 +1,3 @@
 <p>
-    {{ $this->siteContactMessage->message }}
+    {{ $siteContactMessage->message }}
 </p>
