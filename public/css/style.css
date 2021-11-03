@@ -59,6 +59,7 @@
 }
 
 .nav-open .main-nav {
+    background-color: rgba(255, 255, 255, 0.97);
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
