@@ -15,8 +15,17 @@ class MailController extends Controller
     public function send(Request $request)
     {
         $data = $request->all();
-        $siteContactMessage = new SiteContactMessage($data['mensagem']);
+        // $siteContactMessage = new SiteContactMessage($data['mensagem']);
 
-        Mail::to('alexsandro.silva77@outlook.com')->send(new SiteContact($siteContactMessage));
+        // Mail::to('alexsandro.silva77@outlook.com')->send(new SiteContact($siteContactMessage));
+
+
+        mail(
+            'alexsandro.silva77@outlook.com',
+            'Teste de contato',
+            $data['mensagem'],
+            [],
+            ""
+        );
     }
 }
