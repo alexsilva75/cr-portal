@@ -21,5 +21,3 @@ Route::get('/', function () {
 Route::get('/preview', function () {
     return view('welcome');
 });
-
-Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('send');

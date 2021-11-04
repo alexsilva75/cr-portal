@@ -20,12 +20,20 @@ class MailController extends Controller
         // Mail::to('alexsandro.silva77@outlook.com')->send(new SiteContact($siteContactMessage));
 
 
-        mail(
+        if (mail(
             'alexsandro.silva77@outlook.com',
             'Formulário de contato - Portal CR Telecom',
-            "<p>{$data['nome']}</p> <p>{$data['email']}</p> <p>{$data['fone']}</p><p>{$data['mensagem']}</p>",
+            "{$data['nome']} \n {$data['email']} \n {$data['fone']} \n {$data['mensagem']}",
             [],
             ""
-        );
+        )) {
+            return response()->json([
+                'success' => 'Sua mensagem foi enviada com sucesso e está sendo processada. Em breve, entraremos em contato para respondê-la.', 200
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Sua mensagem foi enviada com sucesso e está sendo processada. Em breve, entraremos em contato para respondê-la.', 200
+            ]);
+        }
     }
 }
