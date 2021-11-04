@@ -72,17 +72,17 @@ observer.observe(sectionHeroEl);
 const sendContactMail = async function (e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("nome", document.getElementById("nome"));
-    formData.append("email", document.getElementById("email"));
-    formData.append("fone", document.getElementById("fone"));
-    formData.append("mensagem", document.getElementById("mensagem"));
+    formData.append("nome", document.getElementById("nome").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("fone", document.getElementById("fone").value);
+    formData.append("mensagem", document.getElementById("mensagem").value);
 
-    const response = await fetch("https://portalcrtelecom.com.br/api/v1/send", {
+    const response = fetch("https://portalcrtelecom.com.br/api/v1/send", {
         method: "POST",
         body: formData,
     });
 
-    const responseData = response.json();
+    const responseData = await response.json();
 
     if (responseData.success) {
         alert(responseData.success);
