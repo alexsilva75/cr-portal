@@ -284,7 +284,7 @@
 
                     <p class="subheading">Dúvidas?</p>
                     <h2 class="heading-secondary">Fale Conosco!</h2>
-                    <form action="#">
+                    <form>
                         @csrf
                         <div class="form-group">
                             <label for="nome" class="input-caption">Nome*</label>
