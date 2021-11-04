@@ -313,9 +313,8 @@
                     </form>
                     <div class="toast">
                         <p><strong id="toast-title"></strong></p>
-                        <p class="toast-message" id="toast-message">Sua mensagem foi enviada com sucesso e está sendo
-                            processada. Em breve,
-                            entraremos em contato para respondê-la.</p>
+                        <p class="toast-message" id="toast-message">
+                        </p>
                     </div>
                 </div>
 
