@@ -68,3 +68,28 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(sectionHeroEl);
+
+const sendContactMail = async function (e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("nome", document.getElementById("nome"));
+    formData.append("email", document.getElementById("email"));
+    formData.append("fone", document.getElementById("fone"));
+    formData.append("mensagem", document.getElementById("mensagem"));
+
+    const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+    });
+
+    const responseData = response.json();
+
+    if (responseData.success) {
+        alert(responseData.success);
+    } else {
+        console.log(responseData);
+    }
+};
+
+const btnContact = document.getElementById("btn-contact");
+btnContact.addEventListener("click", sendContactMail);

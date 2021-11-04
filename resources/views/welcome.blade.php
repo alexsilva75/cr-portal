@@ -284,7 +284,7 @@
 
                     <p class="subheading">Dúvidas?</p>
                     <h2 class="heading-secondary">Fale Conosco!</h2>
-                    <form method="POST" action="{{ route('send') }}">
+                    <form action="#">
                         @csrf
                         <div class="form-group">
                             <label for="nome" class="input-caption">Nome*</label>
@@ -303,10 +303,12 @@
 
                         <div class="form-group">
                             <label for="mensagem" class="input-caption">Mensagem</label>
-                            <textarea class="form-control" name="mensagem" id="" cols="30" rows="10"></textarea>
+                            <textarea class="form-control" name="mensagem" id="mensagem" cols="30"
+                                rows="10"></textarea>
                         </div>
 
-                        <button class="btn btn-contact-send"><i class="bi bi-envelope icon-contact"></i>
+                        <button id="btn-contact" class="btn btn-contact-send"><i
+                                class="bi bi-envelope icon-contact"></i>
                             Enviar</button>
                     </form>
                 </div>
