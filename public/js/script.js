@@ -77,7 +77,7 @@ const sendContactMail = async function (e) {
     formData.append("fone", document.getElementById("fone"));
     formData.append("mensagem", document.getElementById("mensagem"));
 
-    const response = await fetch(url, {
+    const response = await fetch("https://portalcrtelecom.com.br/api/v1/send", {
         method: "POST",
         body: formData,
     });
