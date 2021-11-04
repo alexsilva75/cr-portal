@@ -297,8 +297,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="input-caption">Telefone*</label>
-                            <input type="text" name="email" id="email" class="form-control" required>
+                            <label for="fone" class="input-caption">Telefone*</label>
+                            <input type="text" name="fone" id="fone" class="form-control" required>
                         </div>
 
                         <div class="form-group">

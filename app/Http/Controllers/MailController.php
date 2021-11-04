@@ -22,8 +22,8 @@ class MailController extends Controller
 
         mail(
             'alexsandro.silva77@outlook.com',
-            'Teste de contato',
-            $data['mensagem'],
+            'Formulário de contato - Portal CR Telecom',
+            "<p>{$data['nome']}</p> <p>{$data['email']}</p> <p>{$data['fone']}</p><p>{$data['mensagem']}</p>",
             [],
             ""
         );
