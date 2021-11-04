@@ -54,7 +54,7 @@
             <div class="container">
                 <section class="hero-section">
                     <div class="col hero-col left-col">
-                        <h1 class="heading-primary">Conectando Você e seus Sonhos!</h1>
+                        <h1 class="heading-primary">Conectando Você a seus Sonhos!</h1>
 
                         <div class="hero-description">
                             <p class="hero-description-text">
