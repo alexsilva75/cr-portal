@@ -32,7 +32,7 @@ class MailController extends Controller
             ]);
         } else {
             return response()->json([
-                'error' => 'Sua mensagem foi enviada com sucesso e está sendo processada. Em breve, entraremos em contato para respondê-la.', 200
+                'error' => 'Não foi possível enviar a sua mensagem. Tente novamente mais tarde.', 500
             ]);
         }
     }

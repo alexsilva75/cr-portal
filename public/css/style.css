@@ -527,6 +527,7 @@
 }
 
 .section-contact {
+    position: relative;
     background-color: #1e000e;
     color: #fff;
     font-size: 1.8rem;
@@ -611,6 +612,35 @@
 .btn-contact-send {
     background-color: #00000000;
     border: 2px solid #fff;
+}
+
+.success {
+    background-color: #28a745fa;
+}
+
+.danger {
+    background-color: #dc3545;
+}
+
+.toast {
+    position: fixed;
+    top: 8.4rem;
+    color: #fff;
+    right: 0;
+    z-index: 970;
+    padding: 3.2rem;
+    border-bottom-left-radius: 11px;
+    transition: all 0.5s;
+    transform: translateX(100%);
+}
+
+.toast-show {
+    transform: translateX(0);
+}
+
+.toast-message {
+    margin-top: 2.4rem;
+    font-size: 1.4rem;
 }
 
 /* ******************* */

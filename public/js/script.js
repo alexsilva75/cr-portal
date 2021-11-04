@@ -72,22 +72,59 @@ observer.observe(sectionHeroEl);
 const sendContactMail = async function (e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("nome", document.getElementById("nome").value);
-    formData.append("email", document.getElementById("email").value);
-    formData.append("fone", document.getElementById("fone").value);
-    formData.append("mensagem", document.getElementById("mensagem").value);
 
-    const response = fetch("https://portalcrtelecom.com.br/api/v1/send", {
+    const inputNome = document.getElementById("nome");
+    const inputEmail = document.getElementById("email");
+    const inputFone = document.getElementById("fone");
+    const inputMensagem = document.getElementById("mensagem");
+
+    formData.append("nome", inputNome.value);
+    formData.append("email", inputEmail.value);
+    formData.append("fone", inputFone.value);
+    formData.append("mensagem", inputMensagem.value);
+
+    const toastTitle = document.getElementById("toast-title");
+    const toastMessage = document.getElementById("toast-message");
+
+    const response = await fetch("https://portalcrtelecom.com.br/api/v1/send", {
         method: "POST",
         body: formData,
     });
 
     const responseData = await response.json();
+    const toastEl = document.querySelector(".toast");
 
     if (responseData.success) {
-        alert(responseData.success);
+        toastTitle.textContent = "Mensagem enviada";
+        toastMessage.textContent = responseData.success;
+
+        toastEl.classList.toggle("toast-show");
+        toastEl.classList.toggle("success");
+        // alert(responseData.success);
+
+        inputNome.value = "";
+        inputEmail.value = "";
+        inputFone.value = "";
+        inputMensagem.value = "";
+
+        window.setTimeout(function () {
+            toastEl.classList.toggle("toast-show");
+            toastEl.classList.toggle("success");
+        }, 5000);
     } else {
         console.log(responseData);
+
+        toastTitle.textContent = "Erro ao enviar mensagem";
+        toastMessage.textContent =
+            "Não foi possível enviar a sua mensagem. Tente novamente mais tarde.";
+
+        toastEl.classList.toggle("toast-show");
+        toastEl.classList.toggle("danger");
+
+        window.setTimeout(function () {
+            toastEl.classList.toggle("toast-show");
+            toastEl.classList.toggle("danger");
+        }, 5000);
     }
 };
 
