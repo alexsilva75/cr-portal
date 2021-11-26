@@ -40,7 +40,7 @@
     .about-us-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4.8rem;
+        gap: 3.2rem;
     }
 
     .hero-col.right-col {
