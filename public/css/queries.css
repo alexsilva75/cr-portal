@@ -37,6 +37,12 @@
         grid-template-columns: 1fr 1fr;
     }
 
+    .about-us-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4.8rem;
+    }
+
     .hero-col.right-col {
         /* background-image: linear-gradient(#00000088, #00000088),
             url(../img/optimal/woman-laptop-square.jpg);
@@ -220,12 +226,6 @@
 
     .hero-action-heading {
         font-size: 4rem;
-    }
-
-    .about-us-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4.8rem;
     }
 
     .about-us-p {

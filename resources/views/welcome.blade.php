@@ -87,7 +87,7 @@
         <section class="section-about-us">
             <div class="container">
                 <p id="about-us" class="subheading">Quem somos?</p>
-                <h2 class="heading-secondary heading-about-us">Uma empresa que quer evoluir com você</h2>
+                <h2 class="heading-secondary heading-about-us">Uma empresa que evolui com você</h2>
 
                 <div class="about-us-container">
                     <div class="about-us-img">
