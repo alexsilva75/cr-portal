@@ -27,7 +27,7 @@
                     <a class="main-nav-link" href="#">Início</a>
                 </li>
                 <li class="main-nav-item">
-                    <a class="main-nav-link" href="#">Quem somos</a>
+                    <a class="main-nav-link" href="#about-us">Quem somos</a>
                 </li>
                 <li class="main-nav-item">
                     <a class="main-nav-link" href="#section-features">Internet</a>
@@ -83,6 +83,37 @@
 
 
         </div>
+
+        <section class="section-about-us">
+            <div class="container">
+                <p id="about-us" class="subheading">Quem somos?</p>
+                <h2 class="heading-secondary heading-about-us">Uma empresa que quer evoluir com você</h2>
+
+                <div class="about-us-container">
+                    <div class="about-us-img">
+
+                    </div>
+                    <div class="about-us-text">
+                        <p class="about-us-p">
+                            Somos uma empresa familiar que busca a relação humana como seu principal ativo, encurtando e
+                            melhorando diariamente a distância entre clientes, Empresa, colaboradores e fornecedores;
+                            atuando
+                            com profissionalismo, eficiência e rapidez em suas atividades na área de telecomunicações.
+                        </p>
+                        <p class="about-us-p">
+                            Temos 18 anos de experiência e muito a evoluir, acompanhando as transformações no mundo, nas
+                            pessoas
+                            e mercado de trabalho.
+                        </p>
+                        <p class="about-us-p">
+                            Atualmente atendemos às cidades de Santo Amaro, Saubara e estamos em processo de expansão
+                            para novos
+                            mercados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="section-resources">
             <div class="container">
                 <p class="subheading">Já é nosso cliente?</p>
@@ -91,7 +122,7 @@
 
                     <figure class="box-resource">
                         <p class="subheading">Teste de velocidade</p>
-                        <div class="box-resource-img">
+                        <div class="box-resource-img speed-img-box">
                             <a href="{{ url('https://crtelecom.speedtestcustom.com') }}" target="_blank">
                                 <img class="resorce-img" src="{{ asset('img/optimal/speedometer.png') }}" alt="">
                             </a>

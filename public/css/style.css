@@ -226,12 +226,78 @@
 }
 
 /* ******************* */
+/* ABOUT US SECTION */
+/* ******************* */
+
+.section-about-us {
+    background-color: #e6eaeb;
+    padding: 2.4rem 0;
+}
+
+.about-us-container {
+    padding: 3.2rem 0;
+}
+
+.heading-about-us {
+    padding: 0 2.4rem;
+}
+
+.about-us-img {
+    background-image: linear-gradient(#00000088, #00000088),
+        url(../img/optimal/about-us.jpg);
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+    margin-bottom: 2.4rem;
+}
+
+.about-us-img::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 18rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(80%, -60%);
+    background-color: #e6eaeb;
+    border-radius: 11px;
+}
+
+.about-us-img::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 18rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-80%, 60%);
+    background-color: #e6eaeb; /*#fff;*/
+    border-radius: 11px;
+}
+
+.about-us-text {
+    padding: 0 2.4rem;
+}
+
+.about-us-p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 2.4rem;
+}
+
+/* ******************* */
 /* RESOURCES SECTION */
 /* ******************* */
 
 .section-resources {
     padding: 2.4rem;
-    background-color: #e6eaeb;
+    background-color: #d2cccf;
 }
 
 .resources-container {
@@ -251,10 +317,15 @@
 
     /* padding: 1.2rem; */
     width: 100%;
+
     border-radius: 50%;
     box-shadow: 0 4px 12px 2px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.5s;
+}
+
+.speed-img-box {
+    /* height: 100%; */
 }
 
 .box-resource-img:hover {

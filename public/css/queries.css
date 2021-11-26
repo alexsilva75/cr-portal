@@ -222,6 +222,18 @@
         font-size: 4rem;
     }
 
+    .about-us-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4.8rem;
+    }
+
+    .about-us-p {
+        font-size: 1.8rem;
+        line-height: 1.6;
+        margin-bottom: 2.4rem;
+    }
+
     .people-plan-img {
         background-image: linear-gradient(
                 to bottom right,
@@ -352,6 +364,10 @@
 
     .hero-col.right-col {
         background-color: #ccd5d8;
+    }
+
+    .heading-about-us {
+        padding: 0;
     }
 
     .section-contact {
