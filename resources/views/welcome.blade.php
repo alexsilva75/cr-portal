@@ -96,7 +96,7 @@
                     <div class="about-us-text">
                         <p class="about-us-p">
                             Somos uma empresa familiar que busca a relação humana como seu principal ativo, encurtando e
-                            melhorando diariamente a distância entre clientes, Empresa, colaboradores e fornecedores;
+                            melhorando diariamente a distância entre clientes, empresas, colaboradores e fornecedores;
                             atuando
                             com profissionalismo, eficiência e rapidez em suas atividades na área de telecomunicações.
                         </p>
