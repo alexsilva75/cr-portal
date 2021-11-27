@@ -953,6 +953,7 @@
     <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8">
     </script>
     <script type="text/javascript" charset="UTF-8">
+        let ccNbMainContainerEl = null;
         document.addEventListener('DOMContentLoaded', function() {
             cookieconsent.run({
                 "notice_banner_type": "simple",
@@ -965,6 +966,10 @@
                 "website_name": "CR Telecom"
             });
 
+            ccNbMainContainerEl = document.querySelector('.cc-nb-main-container');
+
+            ccNbMainContainerEl.style.zIndex = '990';
+
             let privacyButtonContainerEl = document.querySelector('.cc-nb-buttons-container');
 
             privacyButtonContainerEl.insertAdjacentHTML('beforeend',
@@ -975,16 +980,21 @@
 
         let privacyPolicyContainerEl = document.querySelector('.privacy-policy-container');
 
+
         function openPrivacy() {
 
-            privacyPolicyContainerEl.classList.add('open-privacy')
+            privacyPolicyContainerEl.classList.add('open-privacy');
+            ccNbMainContainerEl.style.display = 'none';
         }
 
         function closePrivacy() {
             privacyPolicyContainerEl.classList.remove('open-privacy');
+            ccNbMainContainerEl.style.display = 'block';
         }
 
         let closePrivacyBtnEl = document.querySelector('.btn-close-privacy');
+
+        privacyPolicyContainerEl.addEventListener('click', closePrivacy);
 
         closePrivacyBtnEl.addEventListener('click', closePrivacy);
     </script>
