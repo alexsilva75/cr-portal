@@ -359,6 +359,13 @@
         <div class="social">
             <div class="logo-col">
                 <img src="{{ asset('img/logo.png') }}" alt="">
+
+                <p class="subheading">Nossos Parceiros</p>
+                <div class="partners-logos">
+                    <a href="https://jbits.com.br"><img class="partner-logo"
+                            src="{{ asset('img/optimal/logos/logo-jbits.png') }}" alt=""></a>
+                </div>
+
             </div>
             <div class="social-media-col">
                 <p class="subheading">Mídias sociais</p>
@@ -417,6 +424,28 @@
     </footer>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://wbot.chat/index.js" token="a30c4f1aa4c023b7273d24f2de930d5c"></script>
+
+    <!-- Cookie Consent by https://www.TermsFeed.com -->
+    <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8">
+    </script>
+    <script type="text/javascript" charset="UTF-8">
+        document.addEventListener('DOMContentLoaded', function() {
+            cookieconsent.run({
+                "notice_banner_type": "simple",
+                "consent_type": "express",
+                "palette": "dark",
+                "language": "pt",
+                "page_load_consent_levels": ["strictly-necessary"],
+                "notice_banner_reject_button_hide": false,
+                "preferences_center_close_button_hide": false,
+                "website_name": "CR Telecom"
+            });
+        });
+    </script>
+
+    <noscript>Cookie Consent by <a href="https://www.termsfeed.com/privacy-policy-generator/"
+            rel="nofollow noopener">TermsFeed Generator</a></noscript>
+    <!-- End Cookie Consent -->
 </body>
 
 </html>

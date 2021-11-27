@@ -808,3 +808,12 @@
     visibility: visible;
     transform: translateY(-150px);
 }
+
+.partners-logos {
+    padding: 8px 3.2rem;
+}
+
+.partner-logo {
+    filter: grayscale(1);
+    width: 70%;
+}
