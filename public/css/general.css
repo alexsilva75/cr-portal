@@ -85,6 +85,10 @@ body {
     color: var(--gray-dark-blue);
     overflow-x: hidden;
     scroll-behavior: "smooth";
+    position: relative;
+}
+
+main {
 }
 
 a {
@@ -174,4 +178,12 @@ a {
 
 .margin-top-sm-1 {
     margin-top: 3.2rem;
+}
+
+.my-h2 {
+    margin: 4.8rem 0 3.2rem 0;
+}
+
+.my-h3 {
+    margin: 3.2rem 0 2.4rem 0;
 }

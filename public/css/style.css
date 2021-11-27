@@ -67,15 +67,17 @@
     z-index: 999;
 }
 
-.btn-mobile-nav {
+.btn-mobile-nav,
+.btn-close-privacy {
     display: block;
     border: none;
     background: none;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
 }
 
-.icon-mobile-nav {
+.icon-mobile-nav,
+.privacy-close {
     font-size: 3.2rem;
     color: var(--gray-dark-blue);
 }
@@ -816,4 +818,54 @@
 .partner-logo {
     filter: grayscale(1);
     width: 70%;
+}
+
+.privacy-policy-container {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    overflow-y: scroll;
+    transition: all 0.5s;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.open-privacy {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+}
+
+.btn-close-privacy {
+    position: absolute;
+    top: 3.2rem;
+    right: 3.2rem;
+}
+
+.privacy-policy {
+    margin: 2.4rem;
+    padding: 3.2rem;
+    background-color: #fff;
+    color: var(--gray-dark-blue);
+    position: relative;
+    border-radius: 11px;
+}
+
+.privacy-policy ul {
+    margin-left: 4.8rem;
+}
+
+.privacy-p {
+    font-size: 1.6rem;
+    line-height: 1.4;
+
+    margin: 2.4rem 0;
 }
