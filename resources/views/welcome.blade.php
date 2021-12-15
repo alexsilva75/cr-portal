@@ -183,7 +183,7 @@
                                 <p class="plan-speed">40<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>65,00</p>
                                 <div class="plan-cta">
-                                    <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                                    <a onclick="WBOTopenChat()" class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
 
@@ -203,7 +203,7 @@
                                 <p class="plan-speed">80<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>85,00</p>
                                 <div class="plan-cta">
-                                    <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                                    <a onclick="WBOTopenChat()" class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +224,8 @@
                                 <p class="plan-price"><span>R$</span>105,00</p>
 
                                 <div class="plan-cta">
-                                    <a href="#" class="btn btn-plan">Quero contratar &raquo;</a>
+                                    <a onclick="WBOTopenChat()" class="btn btn-plan">Quero contratar
+                                        &raquo;</a>
                                 </div>
                             </div>
                         </div>
