@@ -183,7 +183,8 @@
                                 <p class="plan-speed">40<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>65,00</p>
                                 <div class="plan-cta">
-                                    <a onclick="WBOTopenChat()" class="btn btn-plan">Quero contratar &raquo;</a>
+                                    <a onclick="sendMegaZapMessage('Quero Contratar 40Mbps!')"
+                                        class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
 
@@ -203,7 +204,8 @@
                                 <p class="plan-speed">80<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>85,00</p>
                                 <div class="plan-cta">
-                                    <a onclick="WBOTopenChat()" class="btn btn-plan">Quero contratar &raquo;</a>
+                                    <a onclick="sendMegaZapMessage('Quero Contratar 80Mbps!')"
+                                        class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +226,8 @@
                                 <p class="plan-price"><span>R$</span>105,00</p>
 
                                 <div class="plan-cta">
-                                    <a onclick="WBOTopenChat()" class="btn btn-plan">Quero contratar
+                                    <a onclick="sendMegaZapMessage('Quero Contratar 120Mbps!')"
+                                        class="btn btn-plan">Quero contratar
                                         &raquo;</a>
                                 </div>
                             </div>
@@ -947,12 +950,14 @@
         <p>CR Telecom &copy; - <span class="year">2027</span>. Todos os direitos reservados </p>
 
     </footer>
-    <script src="{{ asset('js/script.js') }}"></script>
+
     <script src="https://wbot.chat/index.js" token="a30c4f1aa4c023b7273d24f2de930d5c"></script>
 
     <!-- Cookie Consent by https://www.TermsFeed.com -->
     <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8">
     </script>
+
+    <script src="{{ asset('js/script.js') }}"></script>
     <script type="text/javascript" charset="UTF-8">
         let ccNbMainContainerEl = null;
         document.addEventListener('DOMContentLoaded', function() {

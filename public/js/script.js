@@ -130,3 +130,13 @@ const sendContactMail = async function (e) {
 
 const btnContact = document.getElementById("btn-contact");
 btnContact.addEventListener("click", sendContactMail);
+
+function sendMegaZapMessage(textMessage) {
+    const megaZapInputEl = document.getElementById("wbot-message-input");
+    console.log(megaZapInputEl);
+    WBOTopenChat();
+    megaZapInputEl.textContent = textMessage;
+    WBOTdata.text = textMessage;
+
+    WBOTsendMessage();
+}
