@@ -180,7 +180,7 @@
                                 em home office.</p>
 
                             <div>
-                                <p class="plan-speed">40<span>Mbps</span> </p>
+                                <p class="plan-speed">60<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>65,00</p>
                                 <div class="plan-cta">
                                     <a onclick="sendMegaZapMessage('Quero Contratar 40Mbps!')"
@@ -201,7 +201,7 @@
                                 profissionais.</p>
 
                             <div>
-                                <p class="plan-speed">80<span>Mbps</span> </p>
+                                <p class="plan-speed">100<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>85,00</p>
                                 <div class="plan-cta">
                                     <a onclick="sendMegaZapMessage('Quero Contratar 80Mbps!')"
@@ -222,7 +222,7 @@
                             </p>
 
                             <div>
-                                <p class="plan-speed">120<span>Mbps</span> </p>
+                                <p class="plan-speed">200<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>105,00</p>
 
                                 <div class="plan-cta">
