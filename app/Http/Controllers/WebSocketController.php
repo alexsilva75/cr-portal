@@ -53,6 +53,23 @@ class WebSocketController extends Controller implements MessageComponentInterfac
         $conn->close();
     }
 
+
+    private function showWelcomeMenu(ConnectionInterface $conn){
+        $welcomeMessage = <<<EOT
+        <strong>Olá, prezado(a) cliente! Por favor, para que possamos ajudá-lo, selecione uma das opções abaixo</strong> <br>
+        <ul>
+            <li>Financeiro</li>
+            <li>Atendimento Técnico</li>
+            <li>Informações e dúvidas</li>
+        </ul>
+        EOT;
+
+        $conn->send(json_encode([
+            'msg' => $welcomeMessage,
+            'from_resource_id' => $conn->resourceId,
+        ]));
+    }
+
     /**
      * Triggered when a client sends data through the socket
      * @param  \Ratchet\ConnectionInterface $conn The socket/connection that sent the message to your application
@@ -68,9 +85,10 @@ class WebSocketController extends Controller implements MessageComponentInterfac
             foreach($this->connections as $resourceId => &$connection){
                 $connection['conn']->send(json_encode([$conn->resourceId => $msg]));
 
-                if($conn->resourceId != $resourceId){
-                    $onlineUsers[$resourceId] = $connection['user_id'];
-                }
+                // if($conn->resourceId != $resourceId){
+                //     $onlineUsers[$resourceId] = $connection['user_id'];
+                // }
+                $this->showWelcomeMenu($conn);
             }
             $conn->send(json_encode(['online_users' => $onlineUsers]));
         }else{
@@ -88,4 +106,8 @@ class WebSocketController extends Controller implements MessageComponentInterfac
             ]));
         }
     }
+
+
+
+
 }

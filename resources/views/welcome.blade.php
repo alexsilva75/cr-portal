@@ -52,8 +52,8 @@
 
     <main>
         <div class="cr-chat">
-            <div class="cr-chat-display">
-
+            <div class="cr-chat-display-holder">
+                <div class="cr-chat-display"></div>
             </div>
             <div  class="cr-chat-panel">
                 <form class="cr-chat-form" onsubmit="sendWSCRChatMessage(event)">

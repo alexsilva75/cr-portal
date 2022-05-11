@@ -13,26 +13,55 @@ function sendWSCRChatMessage(e) {
         });
         socket.addEventListener("message", function (event) {
             console.log("Message from server ", event.data);
-            displayReceivedMessage(event.data);
+            if (JSON.parse(event.data).msg) {
+                displayReceivedMessage(event.data);
+            }
         });
     } else {
         //console.log("Socket already exists.");
         const inputText = document.getElementById("wsText");
         socket.send(JSON.stringify({ content: inputText.value }));
+        displaySentMessage(inputText.value);
+        inputText.value = "";
     }
 
     //event.target.preventDefault();
 }
 
-function displayReceivedMessage(message) {
-    const messageBalloonEl = document.createElement("div");
-    const messageParagraphEl = document.createElement("p");
-    messageParagraphEl.textContent = message;
-
-    messageBalloonEl.appendChild(messageParagraphEl);
-    messageBalloonEl.classList.add("cr-chat-message-balloon");
+function displayReceivedMessage(receivedMessage) {
+    const messageObject = JSON.parse(receivedMessage);
+    const messageBalloonEl = createBalloon(messageObject.msg, "ATTENDANT");
 
     const chatDisplay = document.querySelector(".cr-chat-display");
 
     chatDisplay.insertAdjacentElement("beforeend", messageBalloonEl);
+    messageBalloonEl.scrollIntoView();
+}
+
+function displaySentMessage(message) {
+    const messageBalloonEl = createBalloon(message, "USER");
+
+    const chatDisplay = document.querySelector(".cr-chat-display");
+
+    chatDisplay.insertAdjacentElement("beforeend", messageBalloonEl);
+    messageBalloonEl.scrollIntoView();
+}
+
+function createBalloon(message, from) {
+    const messageBalloonEl = document.createElement("div");
+    const messageParagraphEl = document.createElement("p");
+    //console.log(typeof receivedMessage);
+
+    messageParagraphEl.innerHTML = message;
+
+    messageBalloonEl.appendChild(messageParagraphEl);
+    messageBalloonEl.classList.add("cr-chat-message-balloon");
+
+    if (from === "USER") {
+        messageBalloonEl.classList.add("cr-chat-user-balloon");
+    } else {
+        messageBalloonEl.classList.add("cr-chat-attendant-balloon");
+    }
+
+    return messageBalloonEl;
 }
