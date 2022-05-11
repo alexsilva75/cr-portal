@@ -1,0 +1,50 @@
+.cr-chat {
+    position: fixed;
+    left: 2em;
+    bottom: 2em;
+    z-index: 10;
+}
+
+.cr-chat-panel {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.cr-chat-display {
+    background-color: #ddd;
+    min-height: 2em;
+    max-height: 40em;
+    width: 30em;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow-y: scroll;
+}
+
+.btn-cr-chat-send {
+    padding: 1.2rem 1.8rem;
+    border-radius: 9px;
+    background: #720d08;
+    color: #fff;
+    transition: all 0.5s;
+
+    border: none;
+}
+
+.btn-cr-chat-icon {
+    margin-right: 8px;
+}
+
+.input-cr-chat {
+    padding: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    outline: none;
+}
+
+.cr-chat-message-balloon {
+    margin: 4px;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: rgb(226, 228, 147);
+}

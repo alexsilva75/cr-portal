@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/general.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/queries.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cr-chat.css') }}">
 
 
 </head>
@@ -50,6 +51,22 @@
     </header>
 
     <main>
+        <div class="cr-chat">
+            <div class="cr-chat-display">
+
+            </div>
+            <div  class="cr-chat-panel">
+                <form class="cr-chat-form" onsubmit="sendWSCRChatMessage(event)">
+
+                    <input class="input-cr-chat" type="text" name="wsText" id="wsText" placeholder="Escreva uma mensagem"></input>
+                    <button type="submit" class="btn-cr-chat-send ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill btn-cr-chat-icon" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                        </svg>Enviar
+                    </button>
+                </form>
+            </div>
+        </div>
         <div class="hero-container">
             <div class="container">
                 <section class="hero-section">
@@ -1009,9 +1026,7 @@
             rel="nofollow noopener">TermsFeed Generator</a></noscript>
     <!-- End Cookie Consent -->
 
-    <script>
-
-    </script>
+    <script src="{{ asset('js/cr-chat.js')}}">    </script>
 </body>
 
 </html>
