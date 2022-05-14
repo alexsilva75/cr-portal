@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 //use Ratchet\WebSocket\MessageComponentInterface as WebSocketMessageComponentInterface;
+use App\Models\ChatSession;
 
 class WebSocketController extends Controller implements MessageComponentInterface
 {
@@ -17,8 +18,12 @@ class WebSocketController extends Controller implements MessageComponentInterfac
      * @throws \Exception
      */
     function onOpen(ConnectionInterface $conn){
-        $this->connections[$conn->resourceId] = compact('conn') + ['user_id' => null];
+        $this->connections[$conn->resourceId] = compact('conn') + ['conn_type' => null, 'my_customer_conn_id' => null];
+        $chatSession = new ChatSession();
+
+
         echo "New connection! ({$conn->resourceId})\n";
+
     }
 
      /**
@@ -47,7 +52,7 @@ class WebSocketController extends Controller implements MessageComponentInterfac
      * @throws \Exception
      */
     function onError(ConnectionInterface $conn, \Exception $e){
-        $userId = $this->connections[$conn->resourceId]['user_id'];
+        $userId = $this->connections[$conn->resourceId]['conn_type'];
         echo "An error has ocurred with user $userId: {$e->getMessage()}\n";
         unset($this->connections[$conn->resourceId]);
         $conn->close();
@@ -78,19 +83,23 @@ class WebSocketController extends Controller implements MessageComponentInterfac
      */
     function onMessage(ConnectionInterface $conn, $msg)
     {
-        if(is_null($this->connections[$conn->resourceId]['user_id'])){
-            $this->connections[$conn->resourceId]['user_id'] = $msg;
+        if(is_null($this->connections[$conn->resourceId]['conn_type'])){
+            $this->connections[$conn->resourceId]['conn_type'] = $msg;
             $onlineUsers = [];
 
-            foreach($this->connections as $resourceId => &$connection){
-                $connection['conn']->send(json_encode([$conn->resourceId => $msg]));
+           // foreach($this->connections as $resourceId => &$connection){
+             //   $connection['conn']->send(json_encode(['connId' => $conn->resourceId, 'conType' => $msg]));
 
                 // if($conn->resourceId != $resourceId){
                 //     $onlineUsers[$resourceId] = $connection['user_id'];
                 // }
-                $this->showWelcomeMenu($conn);
-            }
-            $conn->send(json_encode(['online_users' => $onlineUsers]));
+                if($this->connections[$conn->resourceId]['conn_type'] == 'customer'){
+                    $this->showWelcomeMenu($conn);
+                }else{
+
+                }
+            //}
+            //$conn->send(json_encode(['online_users' => $onlineUsers]));
         }else{
             $fromUserId = $this->connections[$conn->resourceId]['user_id'];
             $msg = json_decode($msg, true);

@@ -9,7 +9,7 @@ function sendWSCRChatMessage(e) {
     if (!socket || socket.readyState === 2 || socket.readyState === 3) {
         socket = new WebSocket("ws://localhost:8090");
         socket.addEventListener("open", function (event) {
-            socket.send("testId");
+            socket.send("customer");
         });
         socket.addEventListener("message", function (event) {
             console.log("Message from server ", event.data);

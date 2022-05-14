@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 
 use Ratchet\Server\IoServer;
 use Ratchet\Http\HttpServer;
+use Ratchet\Wamp\WampServer;
 use Ratchet\WebSocket\WsServer;
 
 class WebSocketServer extends Command
@@ -44,8 +45,13 @@ class WebSocketServer extends Command
     {
         $server = IoServer::factory(
             new HttpServer(
+
+
+
                 new WsServer(
-                    new WebSocketController()
+
+                        new WebSocketController()
+
                 )
             ),
             8090
