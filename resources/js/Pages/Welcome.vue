@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import { onMounted } from 'vue';
 
 defineProps({
     canLogin: Boolean,
@@ -7,6 +8,161 @@ defineProps({
     laravelVersion: String,
     phpVersion: String,
 });
+
+onMounted(function(){
+
+
+
+
+
+const headerEl = document.querySelector(".header");
+
+function toggleDrawer() {
+    headerEl.classList.toggle("nav-open");
+}
+
+const btnMobileNav = document.querySelector(".btn-mobile-nav");
+
+btnMobileNav.addEventListener("click", toggleDrawer);
+
+function updateCopyrightYear() {
+    let yearEl = document.querySelector(".year");
+    yearEl.textContent = new Date().getFullYear();
+}
+
+updateCopyrightYear();
+
+let allLinks = document.querySelectorAll("a:link");
+
+allLinks.forEach((linkEl) => {
+    linkEl.addEventListener("click", function (event) {
+        const hrefAttr = linkEl.getAttribute("href");
+
+        if (hrefAttr === "#" || hrefAttr.startsWith("#")) {
+            event.preventDefault();
+            // alert("Prevent default");
+            if (hrefAttr === "#") {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            if (hrefAttr != "#" && hrefAttr.startsWith("#")) {
+                const sectionEl = document.querySelector(hrefAttr);
+                sectionEl.scrollIntoView({ behavior: "smooth" });
+            }
+
+            if (linkEl.classList.contains("main-nav-link")) {
+                // alert('remove')
+                headerEl.classList.remove("nav-open");
+            }
+        }
+    });
+});
+
+const sendContactMail = async function (e) {
+    e.preventDefault();
+    const formData = new FormData();
+
+    const inputNome = document.getElementById("nome");
+    const inputEmail = document.getElementById("email");
+    const inputFone = document.getElementById("fone");
+    const inputMensagem = document.getElementById("mensagem");
+
+    formData.append("nome", inputNome.value);
+    formData.append("email", inputEmail.value);
+    formData.append("fone", inputFone.value);
+    formData.append("mensagem", inputMensagem.value);
+
+    const toastTitle = document.getElementById("toast-title");
+    const toastMessage = document.getElementById("toast-message");
+
+    const response = await fetch("https://portalcrtelecom.com.br/api/v1/send", {
+        method: "POST",
+        body: formData,
+    });
+
+    const responseData = await response.json();
+    const toastEl = document.querySelector(".toast");
+
+    if (responseData.success) {
+        toastTitle.textContent = "Mensagem enviada";
+        toastMessage.textContent = responseData.success;
+
+        toastEl.classList.toggle("toast-show");
+        toastEl.classList.toggle("success");
+        // alert(responseData.success);
+
+        inputNome.value = "";
+        inputEmail.value = "";
+        inputFone.value = "";
+        inputMensagem.value = "";
+
+        window.setTimeout(function () {
+            toastEl.classList.toggle("toast-show");
+            toastEl.classList.toggle("success");
+        }, 5000);
+    } else {
+        console.log(responseData);
+
+        toastTitle.textContent = "Erro ao enviar mensagem";
+        toastMessage.textContent =
+            "Não foi possível enviar a sua mensagem. Tente novamente mais tarde.";
+
+        toastEl.classList.toggle("toast-show");
+        toastEl.classList.toggle("danger");
+
+        window.setTimeout(function () {
+            toastEl.classList.toggle("toast-show");
+            toastEl.classList.toggle("danger");
+        }, 5000);
+    }
+};
+
+const btnContact = document.getElementById("btn-contact");
+btnContact.addEventListener("click", sendContactMail);
+
+function sendMegaZapMessage(textMessage) {
+    const megaZapInputEl = document.getElementById("wbot-message-input");
+    console.log(megaZapInputEl);
+    WBOTopenChat();
+    megaZapInputEl.textContent = textMessage;
+    WBOTdata.text = textMessage;
+
+    WBOTsendMessage();
+
+
+
+}
+
+
+
+
+
+
+    const sectionHeroEl = document.querySelector(".hero-container");
+const observer = new IntersectionObserver(
+    function (entries, observer) {
+        const ent = entries[0];
+        if (ent.isIntersecting === false) {
+            document.body.classList.add("sticky");
+        }
+
+        if (ent.isIntersecting === true) {
+            document.body.classList.remove("sticky");
+        }
+    },
+
+    {
+        root: null,
+        threshold: 0,
+        rootMargin: "-84px",
+    }
+);
+
+observer.observe(sectionHeroEl);
+})
 </script>
 
 <template>
@@ -48,10 +204,12 @@ defineProps({
                 <form class="cr-chat-form" onsubmit="sendWSCRChatMessage(event)">
 
                     <input class="input-cr-chat" type="text" name="wsText" id="wsText" placeholder="Escreva uma mensagem"/>
-                    <button type="submit" class="btn-cr-chat-send ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill btn-cr-chat-icon" viewBox="0 0 16 16">
-                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-                        </svg>Enviar
+                    <button id="btnSend" type="submit" class="btn-cr-chat-send ">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill btn-cr-chat-icon" viewBox="0 0 16 16">
+                                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                            </svg>
+                            <span>Enviar</span>
                     </button>
                 </form>
             </div>
@@ -123,18 +281,18 @@ defineProps({
                     <figure class="box-resource">
                         <p class="subheading">Teste de velocidade</p>
                         <div class="box-resource-img speed-img-box">
-                            <a href="{{ url('https://crtelecom.speedtestcustom.com') }}" target="_blank">
-                                <img class="resorce-img" src="{{ asset('img/optimal/speedometer.png') }}" alt="">
+                            <a href="https://crtelecom.speedtestcustom.com" target="_blank">
+                                <img class="resorce-img" src="img/optimal/speedometer.png" alt="">
                             </a>
                         </div>
                     </figure>
                     <figure class="box-resource">
                         <p class="subheading">Central do assinante</p>
                         <div class="box-resource-img">
-                            <a href="{{ url('https://noivanet.altaredesistemas.com.br/central_assinante/') }}"
+                            <a href="https://noivanet.altaredesistemas.com.br/central_assinante/"
                                 target="_blank">
                                 <img class="resorce-img resource-img-fill"
-                                    src="{{ asset('img/optimal/woman-laptop-couch-square.jpg') }}" alt="">
+                                    src="img/optimal/woman-laptop-couch-square.jpg" alt="">
                             </a>
                         </div>
                     </figure>

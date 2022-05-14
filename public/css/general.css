@@ -20,7 +20,7 @@ Default: 1
  #ccd5d8
  #678089
 
-- Shades: 
+- Shades:
 #720d08
 
 - Accents:
@@ -124,12 +124,14 @@ a {
     font-size: 3.2rem;
     line-height: 0.9;
     letter-spacing: -0.5px;
+    font-weight: 700;
 }
 
 .heading-secondary {
     font-size: 2.4rem;
     line-height: 1;
     letter-spacing: -0.5px;
+    font-weight: 600;
 }
 
 .heading-tertiary {

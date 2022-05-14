@@ -32,7 +32,20 @@
     overflow-y: scroll;
 }
 
+.cr-chat-form {
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+}
+
 .btn-cr-chat-send {
+}
+
+.btn-cr-chat-icon {
+    margin-right: 8px;
+}
+
+#btnSend {
     padding: 1.2rem 1.8rem;
     border-radius: 9px;
     background: #720d08;
@@ -40,17 +53,20 @@
     transition: all 0.5s;
 
     border: none;
-}
-
-.btn-cr-chat-icon {
-    margin-right: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .input-cr-chat {
+}
+
+#wsText {
     padding: 1.2rem;
     border: 1px solid #ccc;
     border-radius: 9px;
     outline: none;
+    flex: 1;
 }
 
 .cr-chat-message-balloon {

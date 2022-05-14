@@ -9,13 +9,14 @@
         <!-- Fonts -->
         <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> -->
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
         <link rel="stylesheet" href="{{ asset('css/general.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/queries.css') }}">
         <link rel="stylesheet" href="{{ asset('css/cr-chat.css') }}">
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
 
         <!-- Scripts -->
         @routes
@@ -35,7 +36,7 @@
 <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8">
 </script>
 
-<script src="{{ asset('js/script.js') }}"></script>
+
 <script type="text/javascript" charset="UTF-8">
     let ccNbMainContainerEl = null;
     document.addEventListener('DOMContentLoaded', function() {

@@ -21960,7 +21960,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -21972,9 +21982,159 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
+      var headerEl = document.querySelector(".header");
+
+      function toggleDrawer() {
+        headerEl.classList.toggle("nav-open");
+      }
+
+      var btnMobileNav = document.querySelector(".btn-mobile-nav");
+      btnMobileNav.addEventListener("click", toggleDrawer);
+
+      function updateCopyrightYear() {
+        var yearEl = document.querySelector(".year");
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      updateCopyrightYear();
+      var allLinks = document.querySelectorAll("a:link");
+      allLinks.forEach(function (linkEl) {
+        linkEl.addEventListener("click", function (event) {
+          var hrefAttr = linkEl.getAttribute("href");
+
+          if (hrefAttr === "#" || hrefAttr.startsWith("#")) {
+            event.preventDefault(); // alert("Prevent default");
+
+            if (hrefAttr === "#") {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+            }
+
+            if (hrefAttr != "#" && hrefAttr.startsWith("#")) {
+              var sectionEl = document.querySelector(hrefAttr);
+              sectionEl.scrollIntoView({
+                behavior: "smooth"
+              });
+            }
+
+            if (linkEl.classList.contains("main-nav-link")) {
+              // alert('remove')
+              headerEl.classList.remove("nav-open");
+            }
+          }
+        });
+      });
+
+      var sendContactMail = /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+          var formData, inputNome, inputEmail, inputFone, inputMensagem, toastTitle, toastMessage, response, responseData, toastEl;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  e.preventDefault();
+                  formData = new FormData();
+                  inputNome = document.getElementById("nome");
+                  inputEmail = document.getElementById("email");
+                  inputFone = document.getElementById("fone");
+                  inputMensagem = document.getElementById("mensagem");
+                  formData.append("nome", inputNome.value);
+                  formData.append("email", inputEmail.value);
+                  formData.append("fone", inputFone.value);
+                  formData.append("mensagem", inputMensagem.value);
+                  toastTitle = document.getElementById("toast-title");
+                  toastMessage = document.getElementById("toast-message");
+                  _context.next = 14;
+                  return fetch("https://portalcrtelecom.com.br/api/v1/send", {
+                    method: "POST",
+                    body: formData
+                  });
+
+                case 14:
+                  response = _context.sent;
+                  _context.next = 17;
+                  return response.json();
+
+                case 17:
+                  responseData = _context.sent;
+                  toastEl = document.querySelector(".toast");
+
+                  if (responseData.success) {
+                    toastTitle.textContent = "Mensagem enviada";
+                    toastMessage.textContent = responseData.success;
+                    toastEl.classList.toggle("toast-show");
+                    toastEl.classList.toggle("success"); // alert(responseData.success);
+
+                    inputNome.value = "";
+                    inputEmail.value = "";
+                    inputFone.value = "";
+                    inputMensagem.value = "";
+                    window.setTimeout(function () {
+                      toastEl.classList.toggle("toast-show");
+                      toastEl.classList.toggle("success");
+                    }, 5000);
+                  } else {
+                    console.log(responseData);
+                    toastTitle.textContent = "Erro ao enviar mensagem";
+                    toastMessage.textContent = "Não foi possível enviar a sua mensagem. Tente novamente mais tarde.";
+                    toastEl.classList.toggle("toast-show");
+                    toastEl.classList.toggle("danger");
+                    window.setTimeout(function () {
+                      toastEl.classList.toggle("toast-show");
+                      toastEl.classList.toggle("danger");
+                    }, 5000);
+                  }
+
+                case 20:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function sendContactMail(_x) {
+          return _ref2.apply(this, arguments);
+        };
+      }();
+
+      var btnContact = document.getElementById("btn-contact");
+      btnContact.addEventListener("click", sendContactMail);
+
+      function sendMegaZapMessage(textMessage) {
+        var megaZapInputEl = document.getElementById("wbot-message-input");
+        console.log(megaZapInputEl);
+        WBOTopenChat();
+        megaZapInputEl.textContent = textMessage;
+        WBOTdata.text = textMessage;
+        WBOTsendMessage();
+      }
+
+      var sectionHeroEl = document.querySelector(".hero-container");
+      var observer = new IntersectionObserver(function (entries, observer) {
+        var ent = entries[0];
+
+        if (ent.isIntersecting === false) {
+          document.body.classList.add("sticky");
+        }
+
+        if (ent.isIntersecting === true) {
+          document.body.classList.remove("sticky");
+        }
+      }, {
+        root: null,
+        threshold: 0,
+        rootMargin: "-84px"
+      });
+      observer.observe(sectionHeroEl);
+    });
     var __returned__ = {
-      Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head,
-      Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link
+      Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
+      Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_2__.onMounted
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -26261,6 +26421,7 @@ var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
     id: "wsText",
     placeholder: "Escreva uma mensagem"
   }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    id: "btnSend",
     type: "submit",
     "class": "btn-cr-chat-send"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -26272,7 +26433,7 @@ var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
     viewBox: "0 0 16 16"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
     d: "M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"
-  })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Enviar ")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Enviar")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "hero-container"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "container"
@@ -26331,11 +26492,11 @@ var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
   }, "Teste de velocidade"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "box-resource-img speed-img-box"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "{{ url('https://crtelecom.speedtestcustom.com') }}",
+    href: "https://crtelecom.speedtestcustom.com",
     target: "_blank"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "resorce-img",
-    src: "{{ asset('img/optimal/speedometer.png') }}",
+    src: "img/optimal/speedometer.png",
     alt: ""
   })])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("figure", {
     "class": "box-resource"
@@ -26344,11 +26505,11 @@ var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
   }, "Central do assinante"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "box-resource-img"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "{{ url('https://noivanet.altaredesistemas.com.br/central_assinante/') }}",
+    href: "https://noivanet.altaredesistemas.com.br/central_assinante/",
     target: "_blank"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "resorce-img resource-img-fill",
-    src: "{{ asset('img/optimal/woman-laptop-couch-square.jpg') }}",
+    src: "img/optimal/woman-laptop-couch-square.jpg",
     alt: ""
   })])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
     id: "section-features",

@@ -67,7 +67,7 @@
 
     .heading-primary {
         font-size: 4rem;
-    }
+    font-weight: 700;}
 
     .resources-container {
         grid-template-columns: 1fr 1fr;
