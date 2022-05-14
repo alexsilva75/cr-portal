@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<script setup>
+import { Head, Link } from '@inertiajs/inertia-vue3';
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+defineProps({
+    canLogin: Boolean,
+    canRegister: Boolean,
+    laravelVersion: String,
+    phpVersion: String,
+});
+</script>
 
-    <title>CR Telecom &mdash; Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/queries.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/cr-chat.css') }}">
-
-
-</head>
-
-<body>
+<template>
+    <Head title="Bem-vindo" />
 
     <header class="header">
         <a href="#">
-            <img class="logo-top-img" src="{{ asset('img/logo.png') }}" alt="CR Telecom - logo">
+            <img class="logo-top-img" src="img/logo.png" alt="CR Telecom - logo">
         </a>
         <nav class="main-nav">
             <ul class="main-nav-list">
@@ -33,12 +27,7 @@
                 <li class="main-nav-item">
                     <a class="main-nav-link" href="#section-features">Internet</a>
                 </li>
-                {{-- <li class="main-nav-item">
-                    <a class="main-nav-link" href="">Parcerias</a>
-                </li>
-                <li class="main-nav-item">
-                    <a class="main-nav-link" href="">Shopping</a>
-                </li> --}}
+
                 <li class="main-nav-item">
                     <a class="main-nav-link" href="#section-contact">Fale conosco</a>
                 </li>
@@ -58,7 +47,7 @@
             <div  class="cr-chat-panel">
                 <form class="cr-chat-form" onsubmit="sendWSCRChatMessage(event)">
 
-                    <input class="input-cr-chat" type="text" name="wsText" id="wsText" placeholder="Escreva uma mensagem"></input>
+                    <input class="input-cr-chat" type="text" name="wsText" id="wsText" placeholder="Escreva uma mensagem"/>
                     <button type="submit" class="btn-cr-chat-send ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill btn-cr-chat-icon" viewBox="0 0 16 16">
                             <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
@@ -80,24 +69,18 @@
                         </div>
 
                         <a href="#features-plans" class="btn hero-btn">Conheça nossos planos &raquo;</a>
-                        {{-- <div class="hero-feature-box hero-sell-box">
-                            <h2 class="hero-action-heading">Quer vender?</h2>
-                            <p class="hero-text">
-                                Quer vender o seu produto ou serviço aqui? Venha para o nosso programa de parcerias.
-                            </p>
-                            <a href="#" class="btn sell-btn">Torne-se um Parceiro &raquo;</a>
-                        </div> --}}
+
                     </div>
 
                     <div class="col hero-col right-col">
-                        {{-- <div class="skew-shape"></div> --}}
+
                         <div class="hero-img">
 
                         </div>
                     </div>
-            </div>
-            </section>
 
+                </section>
+            </div>
 
         </div>
 
@@ -159,9 +142,7 @@
 
             </div>
         </section>
-        {{-- <section class="featured-in">
-            <h1></h1>
-        </section> --}}
+
 
         <section id="section-features" class="section-features">
             <div class="features-intro">
@@ -253,81 +234,18 @@
                     </figure>
                 </div>
             </div>
-            {{-- <div class="features-pre-paid">
-                <p class="subheading">Não quer assinatura?</p>
-                <h3 class="heading-tertiary">Confira nossos pacotes pré-pagos</h3>
-                <p class="description">Temos o pacote certo para você não ficar sem navegar.</p>
 
-                <div class="pre-paid-plans">
-
-                    <div class="pre-paid-plan">
-                        <p class="traffic">2GB*</p>
-                        <span>por apenas</span>
-                        <p class="price">R$ 12,00</p>
-                    </div>
-                    <div class="pre-paid-plan">
-                        <p class="traffic">4GB*</p>
-                        <span>por apenas</span>
-                        <p class="price">R$ 18,00</p>
-                    </div>
-                    <div class="pre-paid-plan">
-                        <p class="traffic">8GB*</p>
-                        <span>por apenas</span>
-                        <p class="price">R$ 28,00</p>
-                    </div>
-                </div>
-
-                <p class="description">*Os valores são pagos por limite de tráfego. O acesso é feito por meio dos
-                    nossos pontos de acesso espalhados pela cidade.</p>
-
-
-                <div class="pre-paid-cta">
-                    <a href="#" class="btn btn-pre-paid">Quero comprar &raquo;</a>
-                </div>
-
-            </div> --}}
 
 
         </section>
 
-        {{-- <section class="section-partnership">
-            <div class="partnership-description">
-                <h2 class="heading-secondary">Apresentamos o nosso Programa de Parcerias</h2>
-                <p class="partnership-text">
-                    Mais do que um provedor, queremos ser seu parceiro na sua busca por desenvolvimento pessoal e
-                    profissional, que se resumem também em uma melhor qualidade de vida.
-                </p>
-            </div>
-            <div class="partnership-img-container">
-                <figure>
-                    <img class="partnership-img" src="{{ asset('img/partnership.jpg') }}" alt="">
-                </figure>
-            </div>
-            <div class="partnership-description">
-                <h2 class="heading-secondary">Vender Online?</h2>
-                <p class="partnership-text">
-                    Agora disponibilizamos um shopping virtual, inteiramente destinado aos nossos parceiros do comércio
-                    local
-                </p>
 
-                <h2 class="heading-secondary">É Autônomo?</h2>
-                <p class="partnership-text">
-                    Sabemos das dificuldades para anunciar serviços em nossa cidade. Por isso oferecemos a nossa
-                    plataforma para permitir que profissionais possam encontrar novos clientes.
-                </p>
-                <div class="partnership-cta">
-                    <a href="#" class="btn hero-btn">Quero ser parceiro &raquo;</a>
-                </div>
-
-
-            </div>
-        </section> --}}
 
         <section id="section-contact" class="section-contact">
 
             <div class="contact-container">
                 <div class="contact-left-col">
-                    {{-- <p class="contact-icon-p" > <span class="contact-icon-container"><i class="bi bi-envelope icon-contact"></i></span> </p> --}}
+
 
                 </div>
 
@@ -337,7 +255,7 @@
                     <p class="subheading">Dúvidas?</p>
                     <h2 class="heading-secondary">Fale Conosco!</h2>
                     <form>
-                        @csrf
+
                         <div class="form-group">
                             <label for="nome" class="input-caption">Nome*</label>
                             <input type="text" name="nome" id="nome" class="form-control" required>
@@ -903,12 +821,12 @@
     <footer class="footer">
         <div class="social">
             <div class="logo-col">
-                <img src="{{ asset('img/logo.png') }}" alt="">
+                <img src="img/logo.png" alt="">
 
                 <p class="subheading">Nossos Parceiros</p>
                 <div class="partners-logos">
                     <a href="https://jbits.com.br"><img class="partner-logo"
-                            src="{{ asset('img/optimal/logos/logo-jbits.png') }}" alt=""></a>
+                            src="img/optimal/logos/logo-jbits.png" alt=""></a>
                 </div>
 
             </div>
@@ -967,66 +885,68 @@
         <p>CR Telecom &copy; - <span class="year">2027</span>. Todos os direitos reservados </p>
 
     </footer>
+</template>
 
-    <script src="https://wbot.chat/index.js" token="a30c4f1aa4c023b7273d24f2de930d5c"></script>
+<style scoped>
+    .bg-gray-100 {
+        background-color: #f7fafc;
+        background-color: rgba(247, 250, 252, var(--tw-bg-opacity));
+    }
 
-    <!-- Cookie Consent by https://www.TermsFeed.com -->
-    <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8">
-    </script>
+    .border-gray-200 {
+        border-color: #edf2f7;
+        border-color: rgba(237, 242, 247, var(--tw-border-opacity));
+    }
 
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script type="text/javascript" charset="UTF-8">
-        let ccNbMainContainerEl = null;
-        document.addEventListener('DOMContentLoaded', function() {
-            cookieconsent.run({
-                "notice_banner_type": "simple",
-                "consent_type": "express",
-                "palette": "dark",
-                "language": "pt",
-                "page_load_consent_levels": ["strictly-necessary"],
-                "notice_banner_reject_button_hide": false,
-                "preferences_center_close_button_hide": false,
-                "website_name": "CR Telecom"
-            });
+    .text-gray-400 {
+        color: #cbd5e0;
+        color: rgba(203, 213, 224, var(--tw-text-opacity));
+    }
 
-            ccNbMainContainerEl = document.querySelector('.cc-nb-main-container');
+    .text-gray-500 {
+        color: #a0aec0;
+        color: rgba(160, 174, 192, var(--tw-text-opacity));
+    }
 
-            ccNbMainContainerEl.style.zIndex = '990';
+    .text-gray-600 {
+        color: #718096;
+        color: rgba(113, 128, 150, var(--tw-text-opacity));
+    }
 
-            let privacyButtonContainerEl = document.querySelector('.cc-nb-buttons-container');
+    .text-gray-700 {
+        color: #4a5568;
+        color: rgba(74, 85, 104, var(--tw-text-opacity));
+    }
 
-            privacyButtonContainerEl.insertAdjacentHTML('beforeend',
-                `<button class="cc-nb-changep" onclick="openPrivacy()" role="button">Conheça a nossa Política de Privacidade</button>`
-            );
-            console.log(privacyButtonContainerEl);
-        });
+    .text-gray-900 {
+        color: #1a202c;
+        color: rgba(26, 32, 44, var(--tw-text-opacity));
+    }
 
-        let privacyPolicyContainerEl = document.querySelector('.privacy-policy-container');
-
-
-        function openPrivacy() {
-
-            privacyPolicyContainerEl.classList.add('open-privacy');
-            ccNbMainContainerEl.style.display = 'none';
+    @media (prefers-color-scheme: dark) {
+        .dark\:bg-gray-800 {
+            background-color: #2d3748;
+            background-color: rgba(45, 55, 72, var(--tw-bg-opacity));
         }
 
-        function closePrivacy() {
-            privacyPolicyContainerEl.classList.remove('open-privacy');
-            ccNbMainContainerEl.style.display = 'block';
+        .dark\:bg-gray-900 {
+            background-color: #1a202c;
+            background-color: rgba(26, 32, 44, var(--tw-bg-opacity));
         }
 
-        let closePrivacyBtnEl = document.querySelector('.btn-close-privacy');
+        .dark\:border-gray-700 {
+            border-color: #4a5568;
+            border-color: rgba(74, 85, 104, var(--tw-border-opacity));
+        }
 
-        privacyPolicyContainerEl.addEventListener('click', closePrivacy);
+        .dark\:text-white {
+            color: #fff;
+            color: rgba(255, 255, 255, var(--tw-text-opacity));
+        }
 
-        closePrivacyBtnEl.addEventListener('click', closePrivacy);
-    </script>
-
-    <noscript>Cookie Consent by <a href="https://www.termsfeed.com/privacy-policy-generator/"
-            rel="nofollow noopener">TermsFeed Generator</a></noscript>
-    <!-- End Cookie Consent -->
-
-    <script src="{{ asset('js/cr-chat.js')}}">    </script>
-</body>
-
-</html>
+        .dark\:text-gray-400 {
+            color: #cbd5e0;
+            color: rgba(203, 213, 224, var(--tw-text-opacity));
+        }
+    }
+</style>
