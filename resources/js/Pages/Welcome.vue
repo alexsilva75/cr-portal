@@ -174,6 +174,7 @@ observer.observe(sectionHeroEl);
         </a>
         <nav class="main-nav">
             <ul class="main-nav-list">
+
                 <li class="main-nav-item">
                     <a class="main-nav-link" href="#">Início</a>
                 </li>
