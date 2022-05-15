@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('send');
+    Route::get('/customers-chats', [App\Http\Controllers\WebSocketController::class, 'customersOpenChats']);
 });

@@ -7,10 +7,14 @@ use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 //use Ratchet\WebSocket\MessageComponentInterface as WebSocketMessageComponentInterface;
 use App\Models\ChatSession;
+use Illuminate\Support\Facades\Cache;
+use Inertia\Inertia;
 
 class WebSocketController extends Controller implements MessageComponentInterface
 {
-    private $connections = [];
+    private static $connections = [];
+
+
     //
      /**
      * When a new connection is opened it will be passed to this method
@@ -18,12 +22,20 @@ class WebSocketController extends Controller implements MessageComponentInterfac
      * @throws \Exception
      */
     function onOpen(ConnectionInterface $conn){
-        $this->connections[$conn->resourceId] = compact('conn') + ['conn_type' => null, 'my_customer_conn_id' => null];
-        $chatSession = new ChatSession();
+        self::$connections[$conn->resourceId] = compact('conn') + [
+            'connType' => null,
+            'myReceiverConnId' => null,
+            'sessionId' => null,
+            'sessionStatus' => null,
+            ];
+
+
+
 
 
         echo "New connection! ({$conn->resourceId})\n";
-
+        echo "Total connections: ".count(self::$connections);
+        ///Cache::put('chatConns', $this->connections);
     }
 
      /**
@@ -33,14 +45,20 @@ class WebSocketController extends Controller implements MessageComponentInterfac
      */
     function onClose(ConnectionInterface $conn){
         $disconnectedId = $conn->resourceId;
-        unset($this->connections[$disconnectedId]);
-        foreach($this->connections as &$connection){
+        $chatSession = ChatSession::find(self::$connections[$disconnectedId]['sessionId']);
+        $chatSession->status = 'CLOSED';
+
+        $chatSession->save();
+        unset(WebSocketController::$connections[$disconnectedId]);
+        foreach(WebSocketController::$connections as &$connection){
             $connection['conn']->send(json_encode([
                 'offline_user' => $disconnectedId,
                 'from_user_id' => 'server control',
                 'from_resource_id' => null
             ]));
         }
+
+
     }
 
 
@@ -52,10 +70,93 @@ class WebSocketController extends Controller implements MessageComponentInterfac
      * @throws \Exception
      */
     function onError(ConnectionInterface $conn, \Exception $e){
-        $userId = $this->connections[$conn->resourceId]['conn_type'];
+        $userId = WebSocketController::$connections[$conn->resourceId]['connType'];
         echo "An error has ocurred with user $userId: {$e->getMessage()}\n";
-        unset($this->connections[$conn->resourceId]);
+        unset(WebSocketController::$connections[$conn->resourceId]);
         $conn->close();
+    }
+
+    /**
+     * Triggered when a client sends data through the socket
+     * @param  \Ratchet\ConnectionInterface $conn The socket/connection that sent the message to your application
+     * @param  string $msg The message received
+     * @throws \Exception
+     */
+    function onMessage(ConnectionInterface $conn, $msg)
+    {
+        echo "Received message: $msg";
+        $messageObj = json_decode($msg);
+        if($messageObj->messageType == 'opening'){
+            self::$connections[$conn->resourceId]['connType'] = $messageObj->connType;
+            $messageObj->connId = $conn->resourceId;
+            $conn->send(json_encode($messageObj));
+
+            $chatSession = new ChatSession();
+
+            if(self::$connections[$conn->resourceId]['connType'] == 'customer'){
+                echo "Resource Id Type: ".gettype($conn->resourceId);
+
+                self::$connections[$conn->resourceId]['sessionId'] = ChatSession::create([
+                    'customer_conn_id' => $conn->resourceId,
+                    'status' => 'OPEN_AWAIT',
+                ])->id;
+
+                $this->showWelcomeMenu($conn);
+            }
+        }else{
+                $onlineUsers = [];
+
+            foreach(self::$connections as $resourceId => &$connection){
+               //$connection['conn']->send(json_encode(['connId' => $conn->resourceId, 'conType' => $msg]));
+
+                //if($conn->resourceId != $resourceId){
+                    $onlineUsers[$resourceId] = $connection['connType'];
+                //}
+
+
+                // if($this->connections[$conn->resourceId]['connType'] == 'customer'){
+                //     $this->showWelcomeMenu($conn);
+                // }else{
+
+                // }
+
+
+            }
+            $conn->send(json_encode(['online_users' => $onlineUsers]));
+        }
+
+
+        // if(is_null($this->connections[$conn->resourceId]['connType'])){
+        //     $this->connections[$conn->resourceId]['connType'] = $msg;
+        //     $onlineUsers = [];
+
+        //    // foreach($this->connections as $resourceId => &$connection){
+        //      //   $connection['conn']->send(json_encode(['connId' => $conn->resourceId, 'conType' => $msg]));
+
+        //         // if($conn->resourceId != $resourceId){
+        //         //     $onlineUsers[$resourceId] = $connection['user_id'];
+        //         // }
+        //         if($this->connections[$conn->resourceId]['connType'] == 'customer'){
+        //             $this->showWelcomeMenu($conn);
+        //         }else{
+
+        //         }
+        //     //}
+        //     //$conn->send(json_encode(['online_users' => $onlineUsers]));
+        // }else{
+        //     $fromUserId = $this->connections[$conn->resourceId]['user_id'];
+        //     $msg = json_decode($msg, true);
+        //     // $this->connections[$msg['to']]['conn']->send(json_encode([
+        //     //     'msg' => $msg['content'],
+        //     //     'from_user_id' => $fromUserId,
+        //     //     'from_resource_id' => $conn->resourceId,
+        //     // ]));
+
+        //     $conn->send(json_encode([
+        //         'msg' => "Echoing... {$msg['content']}",
+        //         'from_resource_id' => $conn->resourceId,
+        //     ]));
+        // }
     }
 
 
@@ -70,53 +171,27 @@ class WebSocketController extends Controller implements MessageComponentInterfac
         EOT;
 
         $conn->send(json_encode([
-            'msg' => $welcomeMessage,
+            'messageText' => $welcomeMessage,
             'from_resource_id' => $conn->resourceId,
         ]));
     }
 
-    /**
-     * Triggered when a client sends data through the socket
-     * @param  \Ratchet\ConnectionInterface $conn The socket/connection that sent the message to your application
-     * @param  string $msg The message received
-     * @throws \Exception
-     */
-    function onMessage(ConnectionInterface $conn, $msg)
-    {
-        if(is_null($this->connections[$conn->resourceId]['conn_type'])){
-            $this->connections[$conn->resourceId]['conn_type'] = $msg;
-            $onlineUsers = [];
 
-           // foreach($this->connections as $resourceId => &$connection){
-             //   $connection['conn']->send(json_encode(['connId' => $conn->resourceId, 'conType' => $msg]));
+    public function customersOpenChats(Request $request){
+        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')
+                            ->whereNotNull('customer_conn_id')->get();
 
-                // if($conn->resourceId != $resourceId){
-                //     $onlineUsers[$resourceId] = $connection['user_id'];
-                // }
-                if($this->connections[$conn->resourceId]['conn_type'] == 'customer'){
-                    $this->showWelcomeMenu($conn);
-                }else{
-
-                }
-            //}
-            //$conn->send(json_encode(['online_users' => $onlineUsers]));
-        }else{
-            $fromUserId = $this->connections[$conn->resourceId]['user_id'];
-            $msg = json_decode($msg, true);
-            // $this->connections[$msg['to']]['conn']->send(json_encode([
-            //     'msg' => $msg['content'],
-            //     'from_user_id' => $fromUserId,
-            //     'from_resource_id' => $conn->resourceId,
-            // ]));
-
-            $conn->send(json_encode([
-                'msg' => "Echoing... {$msg['content']}",
-                'from_resource_id' => $conn->resourceId,
-            ]));
-        }
+        return response()->json(['connections' => $openConnections]);
     }
 
-
-
+    public function dashboard(Request $request){
+        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')
+                            ->whereNotNull('customer_conn_id')->get();
+        return Inertia::render('Dashboard',
+    [
+        'connections' => $openConnections
+    ]
+    );
+    }
 
 }

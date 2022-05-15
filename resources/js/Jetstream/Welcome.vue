@@ -1,6 +1,21 @@
 <script setup>
 import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import ActiveSessionItem from "@/Jetstream/CR/ActiveSessionItem.vue";
+import { usePage } from "@inertiajs/inertia-vue3";
+import { onMounted, computed } from "vue";
+
+let connections = computed(() => usePage().props.value.connections);
+
+// onMounted(async function () {
+//     const response = await fetch(
+//         "http://localhost:8000/api/v1/customers-chats"
+//     );
+
+//     const responseData = await response.json();
+
+//     connections = responseData.connections;
+//     console.log("Response data: ", responseData);
+// });
 </script>
 
 <template>
@@ -18,7 +33,11 @@ import ActiveSessionItem from "@/Jetstream/CR/ActiveSessionItem.vue";
         </div>
 
         <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1">
-            <ActiveSessionItem />
+            <ActiveSessionItem
+                v-for="connection in connections"
+                :key="connection.id"
+                :startSession="connection.created_at"
+            />
         </div>
     </div>
 </template>

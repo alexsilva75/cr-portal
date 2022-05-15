@@ -2,25 +2,30 @@
 
 console.log("CR Chatbot script initializing....");
 let socket = null;
-
+let connId = null;
 function sendWSCRChatMessage(e) {
     e.preventDefault();
     //console.log("Sending message...", e);
-    if (!socket || socket.readyState === 2 || socket.readyState === 3) {
+    if (!socket) {
         socket = new WebSocket("ws://localhost:8090");
         socket.addEventListener("open", function (event) {
-            socket.send("customer");
+            socket.send(JSON.stringify(createMessage("customer", "opening")));
         });
         socket.addEventListener("message", function (event) {
             console.log("Message from server ", event.data);
-            if (JSON.parse(event.data).msg) {
-                displayReceivedMessage(event.data);
+
+            const receivedMessage = JSON.parse(event.data);
+
+            if (receivedMessage.messageType !== "opening") {
+                if (receivedMessage.messageText) {
+                    displayReceivedMessage(receivedMessage);
+                }
             }
         });
     } else {
         //console.log("Socket already exists.");
         const inputText = document.getElementById("wsText");
-        socket.send(JSON.stringify({ content: inputText.value }));
+        socket.send(JSON.stringify(createMessage(inputText.value, "chat")));
         displaySentMessage(inputText.value);
         inputText.value = "";
     }
@@ -28,9 +33,22 @@ function sendWSCRChatMessage(e) {
     //event.target.preventDefault();
 }
 
+function createMessage(messageText, messageType) {
+    const message = {
+        messageType,
+        messageText,
+        connType: "customer",
+    };
+    return message;
+}
+
 function displayReceivedMessage(receivedMessage) {
-    const messageObject = JSON.parse(receivedMessage);
-    const messageBalloonEl = createBalloon(messageObject.msg, "ATTENDANT");
+    //const messageObject = JSON.parse(receivedMessage);
+    console.log("Received message: ", receivedMessage);
+    const messageBalloonEl = createBalloon(
+        receivedMessage.messageText,
+        "ATTENDANT"
+    );
 
     const chatDisplay = document.querySelector(".cr-chat-display");
 
