@@ -162,6 +162,55 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(sectionHeroEl);
+
+
+let ccNbMainContainerEl = null;
+    document.addEventListener('DOMContentLoaded', function() {
+        cookieconsent.run({
+            "notice_banner_type": "simple",
+            "consent_type": "express",
+            "palette": "dark",
+            "language": "pt",
+            "page_load_consent_levels": ["strictly-necessary"],
+            "notice_banner_reject_button_hide": false,
+            "preferences_center_close_button_hide": false,
+            "website_name": "CR Telecom"
+        });
+
+        ccNbMainContainerEl = document.querySelector('.cc-nb-main-container');
+
+        if(ccNbMainContainerEl){
+
+            ccNbMainContainerEl.style.zIndex = '990';
+
+                let privacyButtonContainerEl = document.querySelector('.cc-nb-buttons-container');
+
+                privacyButtonContainerEl.insertAdjacentHTML('beforeend',
+                    `<button class="cc-nb-changep" onclick="openPrivacy()" role="button">Conheça a nossa Política de Privacidade</button>`
+                );
+                console.log(privacyButtonContainerEl);
+        }
+    });
+
+    let privacyPolicyContainerEl = document.querySelector('.privacy-policy-container');
+
+
+    function openPrivacy() {
+
+        privacyPolicyContainerEl.classList.add('open-privacy');
+        ccNbMainContainerEl.style.display = 'none';
+    }
+
+    function closePrivacy() {
+        privacyPolicyContainerEl.classList.remove('open-privacy');
+        ccNbMainContainerEl.style.display = 'block';
+    }
+
+    let closePrivacyBtnEl = document.querySelector('.btn-close-privacy');
+
+    privacyPolicyContainerEl.addEventListener('click', closePrivacy);
+
+    closePrivacyBtnEl.addEventListener('click', closePrivacy);
 })
 </script>
 

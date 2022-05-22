@@ -2,7 +2,7 @@
 import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import ActiveSessionItem from "@/Jetstream/CR/ActiveSessionItem.vue";
 import { usePage } from "@inertiajs/inertia-vue3";
-import { onMounted, computed } from "vue";
+import { onMounted, computed, watch, ref } from "vue";
 
 let connections = computed(() => usePage().props.value.connections);
 
@@ -15,6 +15,13 @@ let connections = computed(() => usePage().props.value.connections);
 
 //     connections = responseData.connections;
 //     console.log("Response data: ", responseData);
+// });
+
+function parseDate(sDate) {
+    return new Date(sDate);
+}
+// watch(connections, async (newConnections, oldConnections) => {
+
 // });
 </script>
 
@@ -36,7 +43,7 @@ let connections = computed(() => usePage().props.value.connections);
             <ActiveSessionItem
                 v-for="connection in connections"
                 :key="connection.id"
-                :startSession="connection.created_at"
+                :startSession="parseDate(connection.created_at)"
             />
         </div>
     </div>
