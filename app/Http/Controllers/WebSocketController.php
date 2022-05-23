@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChatMessage;
 use Illuminate\Http\Request;
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 //use Ratchet\WebSocket\MessageComponentInterface as WebSocketMessageComponentInterface;
 use App\Models\ChatSession;
+
 use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 
@@ -34,7 +36,7 @@ class WebSocketController extends Controller implements MessageComponentInterfac
 
 
         echo "New connection! ({$conn->resourceId})\n";
-        echo "Total connections: ".count(self::$connections);
+        //echo "Total connections: ".count(self::$connections);
         ///Cache::put('chatConns', $this->connections);
     }
 
@@ -94,7 +96,6 @@ class WebSocketController extends Controller implements MessageComponentInterfac
             $chatSession = new ChatSession();
 
             if(self::$connections[$conn->resourceId]['connType'] == 'customer'){
-                echo "Resource Id Type: ".gettype($conn->resourceId);
 
                 self::$connections[$conn->resourceId]['sessionId'] = ChatSession::create([
                     'customer_conn_id' => $conn->resourceId,
@@ -102,27 +103,53 @@ class WebSocketController extends Controller implements MessageComponentInterfac
                 ])->id;
 
                 $this->showWelcomeMenu($conn);
+            }else{
+                $customerConn = self::$connections[$messageObj->customerConnId];
+
+                $chatSession = ChatSession::find($customerConn['sessionId']);
+                $chatSession->status = 'ATTENDING';
+                $chatSession->attendant_conn_id = $conn->resourceId;
+
+                $chatSession->save();
+
+                self::$connections[$conn->resourceId]['sessionId'] = $chatSession->id;
+
             }
         }else{
-                $onlineUsers = [];
+                $session = ChatSession::find(self::$connections[$conn->resourceId]['sessionId']);
+                $message = new ChatMessage();
 
-            foreach(self::$connections as $resourceId => &$connection){
-               //$connection['conn']->send(json_encode(['connId' => $conn->resourceId, 'conType' => $msg]));
+                $message->sender_conn_id = $conn->resourceId;
+                $message->message = $messageObj->messageText;
 
+
+
+                if(self::$connections[$conn->resourceId]['connType'] == 'customer'){
+                    $message->sender_type = 'CUSTOMER';
+                    if($session->status == 'ATTENDING' && $session->attendant_conn_id){
+
+                        self::$connections[$session->attendant_conn_id]->send($msg);
+                    }
+                }else{
+                    $message->sender_type = 'ATTENDANT';
+                    self::$connections[$session->customer_conn_id]->send($msg);
+                }
+
+                $session->messages()->save($message);
+
+
+                //$onlineUsers = [];
+                //foreach(self::$connections as $resourceId => &$connection){
+                //$connection['conn']->send(json_encode(['connId' => $conn->resourceId, 'conType' => $msg]));
                 //if($conn->resourceId != $resourceId){
-                    $onlineUsers[$resourceId] = $connection['connType'];
+                //    $onlineUsers[$resourceId] = $connection['connType'];
                 //}
-
-
                 // if($this->connections[$conn->resourceId]['connType'] == 'customer'){
                 //     $this->showWelcomeMenu($conn);
                 // }else{
-
                 // }
-
-
-            }
-            $conn->send(json_encode(['online_users' => $onlineUsers]));
+                //}
+                //$conn->send(json_encode(['online_users' => $onlineUsers]));
         }
 
 

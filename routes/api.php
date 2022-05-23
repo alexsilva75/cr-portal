@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('send');
     Route::get('/customers-chats', [App\Http\Controllers\WebSocketController::class, 'customersOpenChats']);
-
+    Route::get('/chat/{id}', [App\Http\Controllers\ChatController::class, 'show']);
 
     Route::post('/auth',[App\Http\Controllers\Auth\APITokenController::class, 'authThirdPart']);
 
@@ -31,5 +31,7 @@ Route::prefix('v1')->group(function () {
         //Route::get('notifications/{userId}', [App\Http\Controllers\Auth\NotificationController::class, 'index']);
 
     });
+
+
 
 });
