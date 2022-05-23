@@ -31,13 +31,8 @@ class WebSocketController extends Controller implements MessageComponentInterfac
             'sessionStatus' => null,
             ];
 
-
-
-
-
         echo "New connection! ({$conn->resourceId})\n";
-        //echo "Total connections: ".count(self::$connections);
-        ///Cache::put('chatConns', $this->connections);
+
     }
 
      /**
@@ -103,7 +98,7 @@ class WebSocketController extends Controller implements MessageComponentInterfac
                 ])->id;
 
                 $this->showWelcomeMenu($conn);
-            }else{
+            }else if (self::$connections[$conn->resourceId]['connType'] == 'attendant'){
                 $customerConn = self::$connections[$messageObj->customerConnId];
 
                 $chatSession = ChatSession::find($customerConn['sessionId']);
@@ -115,7 +110,7 @@ class WebSocketController extends Controller implements MessageComponentInterfac
                 self::$connections[$conn->resourceId]['sessionId'] = $chatSession->id;
 
             }
-        }else{
+        }else if($messageObj->messageType == 'chat'){
                 $session = ChatSession::find(self::$connections[$conn->resourceId]['sessionId']);
                 $message = new ChatMessage();
 
@@ -128,11 +123,11 @@ class WebSocketController extends Controller implements MessageComponentInterfac
                     $message->sender_type = 'CUSTOMER';
                     if($session->status == 'ATTENDING' && $session->attendant_conn_id){
 
-                        self::$connections[$session->attendant_conn_id]->send($msg);
+                        self::$connections[$session->attendant_conn_id]['conn']->send($msg);
                     }
                 }else{
                     $message->sender_type = 'ATTENDANT';
-                    self::$connections[$session->customer_conn_id]->send($msg);
+                    self::$connections[$session->customer_conn_id]['conn']->send($msg);
                 }
 
                 $session->messages()->save($message);
