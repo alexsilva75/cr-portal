@@ -51,9 +51,13 @@ class WebSocketController extends Controller implements MessageComponentInterfac
             $connection['conn']->send(json_encode([
                 'offline_user' => $disconnectedId,
                 'from_user_id' => 'server control',
-                'from_resource_id' => null
+                'from_resource_id' => null,
+                'messageType' => 'closing',
+            'messageText' => 'Você foi desconectado por inatividade',
+            'connType' => 'bot',
             ]));
         }
+
 
 
     }
@@ -200,7 +204,7 @@ class WebSocketController extends Controller implements MessageComponentInterfac
 
 
     public function customersOpenChats(Request $request){
-        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')
+        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')->orWhere('status', 'ATTENDING')
                             ->whereNotNull('customer_conn_id')->get();
 
         return response()->json(['connections' => $openConnections]);

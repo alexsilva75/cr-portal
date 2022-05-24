@@ -246,7 +246,31 @@ let ccNbMainContainerEl = null;
     </header>
 
     <main>
-        <div class="cr-chat">
+        <div class="chat-start">
+            <div class="chat-start-icon">
+                <a href="#" onclick="openChat(event)">
+
+                    <i class="bi bi-headset" ></i>
+                </a>
+
+            </div>
+            <div class="chat-logo-holder">
+                <a href="#" onclick="openChat(event)">
+                    <img class="logo-top-img" src="img/logo.png" alt="CR Telecom - logo">
+                </a>
+            </div>
+        </div>
+        <div class="cr-chat cr-hidden">
+            <div class="cr-chat-head">
+                <span>
+                    Olá, amigo cliente!
+                </span>
+                <span>
+                    <a href="#" onclick="closeChat(event)">
+                        <i class="bi bi-x-lg" ></i>
+                    </a>
+                </span>
+</div>
             <div class="cr-chat-display-holder">
                 <div class="cr-chat-display"></div>
             </div>

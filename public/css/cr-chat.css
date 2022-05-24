@@ -3,8 +3,19 @@
     left: 2em;
     bottom: 2em;
     z-index: 10;
+    transition: all 0.5s ease-in;
 }
 
+.cr-chat-head {
+    background-color: #720d08;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
 .cr-chat-panel {
     background-color: #fff;
     padding: 1em;
@@ -83,4 +94,52 @@
 
 .cr-chat-attendant-balloon {
     background-color: rgb(254, 255, 203);
+}
+
+.cr-hidden {
+    opacity: 0;
+
+    pointer-events: none;
+
+    visibility: hidden;
+}
+
+.cr-show {
+    opacity: 1;
+
+    pointer-events: all;
+
+    visibility: visible;
+}
+
+.chat-start {
+    position: fixed;
+    bottom: 24px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 20;
+    transition: all 0.5s ease-in;
+}
+
+.chat-start .chat-start-icon {
+    height: 72px;
+    width: 72px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-radius: 50%;
+    background-color: #720d08;
+    font-size: 32px;
+    color: #fff;
+}
+
+.chat-logo-holder {
+    transform: skewX(-15deg);
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #fff;
 }

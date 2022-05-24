@@ -5,7 +5,12 @@ let socket = null;
 let connId = null;
 function sendWSCRChatMessage(e) {
     e.preventDefault();
-    //console.log("Sending message...", e);
+    //console.log("Socket Ready State: ", socket.readyState);
+    //0: CONNECTING, 1: OPEN, 2: CLOSING, 3: CLOSED,
+    if (socket && (socket.readyState === 2 || socket.readyState === 3)) {
+        socket = null;
+    }
+
     if (!socket) {
         socket = new WebSocket("ws://localhost:8090");
         socket.addEventListener("open", function (event) {
@@ -19,6 +24,10 @@ function sendWSCRChatMessage(e) {
             if (receivedMessage.messageType !== "opening") {
                 if (receivedMessage.messageText) {
                     displayReceivedMessage(receivedMessage);
+                }
+
+                if (receivedMessage.messageType === "closing") {
+                    socket = null;
                 }
             }
         });
@@ -45,6 +54,7 @@ function createMessage(messageText, messageType) {
 function displayReceivedMessage(receivedMessage) {
     //const messageObject = JSON.parse(receivedMessage);
     console.log("Received message: ", receivedMessage);
+
     const messageBalloonEl = createBalloon(
         receivedMessage.messageText,
         "ATTENDANT"
@@ -82,4 +92,24 @@ function createBalloon(message, from) {
     }
 
     return messageBalloonEl;
+}
+
+function openChat(e) {
+    e.preventDefault();
+    const chatContainerEl = document.querySelector(".cr-chat");
+    chatContainerEl.classList.toggle("cr-show");
+    sendWSCRChatMessage(e);
+
+    const chatStartEl = document.querySelector(".chat-start");
+    chatStartEl.classList.toggle("cr-hidden");
+}
+
+function closeChat(e) {
+    console.log("Should close chat");
+    e.preventDefault();
+    const chatContainerEl = document.querySelector(".cr-chat");
+    chatContainerEl.classList.toggle("cr-show");
+
+    const chatStartEl = document.querySelector(".chat-start");
+    chatStartEl.classList.toggle("cr-hidden");
 }
