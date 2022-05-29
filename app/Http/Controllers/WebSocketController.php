@@ -6,9 +6,10 @@ use App\Models\ChatMessage;
 use Illuminate\Http\Request;
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
+use Illuminate\Support\Facades\Artisan;
 //use Ratchet\WebSocket\MessageComponentInterface as WebSocketMessageComponentInterface;
 use App\Models\ChatSession;
-
+use App\Services\WebSocketService;
 use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 
@@ -17,6 +18,8 @@ class WebSocketController extends Controller implements MessageComponentInterfac
     private static $connections = [];
 
 
+
+    
     //
      /**
      * When a new connection is opened it will be passed to this method
@@ -202,26 +205,10 @@ class WebSocketController extends Controller implements MessageComponentInterfac
         ]));
     }
 
+    public function wsStatus(){
 
-    public function customersOpenChats(Request $request){
-        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')->orWhere('status', 'ATTENDING')
-                            ->whereNotNull('customer_conn_id')->get();
-
-        return response()->json(['connections' => $openConnections]);
+        return response()->json(['status' => 'OK']);
     }
 
-    public function dashboard(Request $request){
-        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')
-                            ->whereNotNull('customer_conn_id')->get();
-                            return Inertia::render('Dashboard',
-                            [
-                                'connections' => $openConnections
-                            ]
-                            );
-    }
-
-    public function chat(Request $request){
-
-    }
 
 }

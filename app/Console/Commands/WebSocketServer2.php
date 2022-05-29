@@ -10,15 +10,14 @@ use Ratchet\Http\HttpServer;
 use Ratchet\Wamp\WampServer;
 use Ratchet\WebSocket\WsServer;
 
-class WebSocketServer extends Command
+class WebSocketServer2 extends Command
 {
-    public static $SERVER_IS_RUNNING = false;
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'websocket:start';
+    protected $signature = 'ws:start';
 
     /**
      * The console command description.
@@ -44,25 +43,21 @@ class WebSocketServer extends Command
      */
     public function handle()
     {
-        if(!self::$SERVER_IS_RUNNING){
-
-            $server = IoServer::factory(
-                new HttpServer(
+        $server = IoServer::factory(
+            new HttpServer(
 
 
 
-                    new WsServer(
+                new WsServer(
 
                         new WebSocketController()
 
-                        )
-                    ),
-                    8090
-                );
+                )
+            ),
+            8090
+        );
 
-                self::$SERVER_IS_RUNNING = true;
-                echo 'Websocket Server Running...';
-                return $server->run();
-        }
+        echo 'Websocket Server Running...';
+        return $server->run();
     }
 }

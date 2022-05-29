@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Console\Commands\WebSocketServer;
+use App\Http\Controllers\WebSocketController;
+use App\Services\WebSocketService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+       // echo "In register method....";
+        $wsService = new WebSocketService();
+        $this->app->instance(WebSocketService::class, $wsService);
+
     }
 
     /**
@@ -24,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
     }
 }

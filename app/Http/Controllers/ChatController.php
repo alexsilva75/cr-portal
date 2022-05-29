@@ -85,4 +85,25 @@ class ChatController extends Controller
     {
         //
     }
+
+    public function customersOpenChats(Request $request){
+        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')->orWhere('status', 'ATTENDING')
+                            ->whereNotNull('customer_conn_id')->get();
+
+        return response()->json(['connections' => $openConnections]);
+    }
+
+    public function dashboard(Request $request){
+        $openConnections = ChatSession::where('status', 'OPEN_AWAIT')
+                            ->whereNotNull('customer_conn_id')->get();
+                            return Inertia::render('Dashboard',
+                            [
+                                'connections' => $openConnections
+                            ]
+                            );
+    }
+
+    public function chat(Request $request){
+
+    }
 }

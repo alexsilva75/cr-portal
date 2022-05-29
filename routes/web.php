@@ -39,5 +39,5 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\WebSocketController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\ChatController::class, 'dashboard'])->name('dashboard');
 });
