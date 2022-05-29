@@ -12,8 +12,10 @@ function sendWSCRChatMessage(e) {
     }
 
     if (!socket) {
-        socket = new WebSocket("wss://hm.portalcrtelecom.com.br:8090");
+        console.log("Creating the socket");
+        socket = new WebSocket("wss://portalcrtelecom.com.br:9443");
         socket.addEventListener("open", function (event) {
+            console.log("Opening the connection");
             socket.send(JSON.stringify(createMessage("customer", "opening")));
         });
         socket.addEventListener("message", function (event) {
@@ -30,6 +32,16 @@ function sendWSCRChatMessage(e) {
                     socket = null;
                 }
             }
+        });
+
+        socket.addEventListener("error", function (event) {
+            console.log("An error has occured when trying to connect.");
+            console.log(event);
+        });
+
+        socket.addEventListener("close", function (event) {
+            console.log("Closing websocket connection");
+            console.log(event);
         });
     } else {
         //console.log("Socket already exists.");
