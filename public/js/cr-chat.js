@@ -12,7 +12,7 @@ function sendWSCRChatMessage(e) {
     }
 
     if (!socket) {
-        socket = new WebSocket("ws://localhost:8090");
+        socket = new WebSocket("wss://hm.portalcrtelecom.com.br:8090");
         socket.addEventListener("open", function (event) {
             socket.send(JSON.stringify(createMessage("customer", "opening")));
         });
