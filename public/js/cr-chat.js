@@ -13,7 +13,7 @@ function sendWSCRChatMessage(e) {
 
     if (!socket) {
         console.log("Creating the socket");
-        socket = new WebSocket("wss://portalcrtelecom.com.br/chat/");
+        socket = new WebSocket("wss://portalcrtelecom.com.br:9443");
         socket.addEventListener("open", function (event) {
             console.log("Opening the connection");
             socket.send(JSON.stringify(createMessage("customer", "opening")));
