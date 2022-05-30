@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::get('/ws-status', [App\Http\Controllers\WebSocketController::class, 'wsStatus']);
     Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('send');
-    Route::get('/customers-chats', [App\Http\Controllers\ChatController::class, 'customersOpenChats']);
+    Route::get('/customers-chats', [App\Http\Controllers\ChatController::class, 'customersOpenChats'])->middleware('cors');
     Route::get('/chat/{id}', [App\Http\Controllers\ChatController::class, 'show']);
 
     Route::post('/auth',[App\Http\Controllers\Auth\APITokenController::class, 'authThirdPart']);
