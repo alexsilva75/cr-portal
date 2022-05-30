@@ -6,7 +6,7 @@ class WebSocketService{
     public function __construct(){
         //echo "Starting Web Socket Server.";
         //Artisan::call('serve');
-        //Artisan::call('websocket:start');
+        Artisan::call('websocket:start');
     }
 
 
