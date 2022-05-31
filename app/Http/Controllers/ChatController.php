@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ChatSession;
 use App\Models\ChatMessage;
+use Inertia\Inertia;
 
 class ChatController extends Controller
 {
