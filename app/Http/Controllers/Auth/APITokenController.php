@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use Laravel\Sanctum\PersonalAccessToken;
 
 class APITokenController extends Controller
@@ -23,6 +24,13 @@ class APITokenController extends Controller
 
 
     public function authThirdPart(Request $request){
+        $request->validate([
+            'username' =>'required',
+            'password' => 'required',
+        ]);
+
+        $data = $request->all();
+
      $user = User::where('username', $request->username)->first();
 
             if ($user &&
@@ -31,11 +39,14 @@ class APITokenController extends Controller
                 //return $user;
 
                 //return response()->json(['user' => $user, 'token' => $user->createToken($request->email)]);
-                $token = $user->createToken($request->email);
+                $token = $user->createToken($data['username']);
                 $dbToken = PersonalAccessToken::findToken($token->plainTextToken);
                 return [ 'user' => $user,'token' => $token->plainTextToken, 'tokenCreatedAt' => $dbToken->created_at];
             }
 
-            return response()->json(['Unauthorized' => 'Usuário e/ou senha incorretos.'], 422);
+            //return response()->json(['Unauthorized' => 'Usuário e/ou senha incorretos.'], 422);
+            throw ValidationException::withMessages([
+                'username' => ['Usuário e/ou senha incorretos']
+            ]);
     }
 }
