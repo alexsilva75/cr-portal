@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['https://ws.portalcrtelecom.com.br'],
 
     'allowed_origins_patterns' => [],
 
