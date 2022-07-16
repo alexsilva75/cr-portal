@@ -51,7 +51,7 @@
     </header>
 
     <main>
-        <div class="cr-chat">
+        {{-- <div class="cr-chat">
             <div class="cr-chat-display-holder">
                 <div class="cr-chat-display"></div>
             </div>
@@ -66,7 +66,7 @@
                     </button>
                 </form>
             </div>
-        </div>
+        </div> --}}
         <div class="hero-container">
             <div class="container">
                 <section class="hero-section">
@@ -145,10 +145,21 @@
                             </a>
                         </div>
                     </figure>
-                    <figure class="box-resource">
+                    {{-- <figure class="box-resource">
                         <p class="subheading">Central do assinante</p>
                         <div class="box-resource-img">
                             <a href="{{ url('https://noivanet.altaredesistemas.com.br/central_assinante/') }}"
+                                target="_blank">
+                                <img class="resorce-img resource-img-fill"
+                                    src="{{ asset('img/optimal/woman-laptop-couch-square.jpg') }}" alt="">
+                            </a>
+                        </div>
+                    </figure> --}}
+
+                    <figure class="box-resource">
+                        <p class="subheading">Central do assinante</p>
+                        <div class="box-resource-img">
+                            <a href="{{ url('https://noivanet.sgp.net.br/accounts/central/login') }}"
                                 target="_blank">
                                 <img class="resorce-img resource-img-fill"
                                     src="{{ asset('img/optimal/woman-laptop-couch-square.jpg') }}" alt="">
@@ -191,7 +202,7 @@
                         </div>
 
                         <div class="plan-description people-plan">
-                            <p class="plan-subheading">People</p>
+                            <p class="plan-subheading">FTTH People</p>
                             <p class="plan-desc-p">Ideal para assistir suas séries favoritas, estudar, jogar e
                                 trabalhar
                                 em home office.</p>
@@ -213,7 +224,7 @@
 
                         </div>
                         <div class="plan-description world-plan">
-                            <p class="plan-subheading">World</p>
+                            <p class="plan-subheading">FTTH World</p>
                             <p class="plan-desc-p">Para você que precisa de maior desempenho, em suas atividades
                                 profissionais.</p>
 
@@ -234,12 +245,12 @@
 
                         </div>
                         <div class="plan-description universe-plan">
-                            <p class="plan-subheading">Universe</p>
+                            <p class="plan-subheading">FTTH Universe</p>
                             <p class="plan-desc-p">O pacote certo para empresas e para quem depende de velocidade.
                             </p>
 
                             <div>
-                                <p class="plan-speed">200<span>Mbps</span> </p>
+                                <p class="plan-speed">350<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>105,00</p>
 
                                 <div class="plan-cta">
@@ -968,7 +979,7 @@
 
     </footer>
 
-    <script src="https://wbot.chat/index.js" token="a30c4f1aa4c023b7273d24f2de930d5c"></script>
+    {{-- <script src="https://wbot.chat/index.js" token="a30c4f1aa4c023b7273d24f2de930d5c"></script> --}}
 
     <!-- Cookie Consent by https://www.TermsFeed.com -->
     <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8">
@@ -1026,7 +1037,38 @@
             rel="nofollow noopener">TermsFeed Generator</a></noscript>
     <!-- End Cookie Consent -->
 
-    <script src="{{ asset('js/cr-chat.js')}}">    </script>
+    {{-- <script src="{{ asset('js/cr-chat.js')}}">    </script> --}}
+
+    <!-- Messenger Plugin de bate-papo Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin de bate-papo code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "471056360042438");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v14.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/pt_BR/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 </body>
 
 </html>
