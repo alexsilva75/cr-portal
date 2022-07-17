@@ -181,6 +181,7 @@
     height: 100%;
     border-bottom-right-radius: 11px;
     overflow: hidden;
+    position: relative;
 }
 
 .hero-col.right-col::before {
@@ -879,4 +880,45 @@
     line-height: 1.4;
 
     margin: 2.4rem 0;
+}
+
+.right-floating-call {
+    background-color: rgb(70, 178, 250);
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    padding: 12px;
+    font-size: 1.4rem;
+
+    transition: all 0.5s;
+    width: 234px;
+    margin-right: -184px;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.right-floating-call a {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: #fff;
+}
+
+.right-floating-call:hover {
+    margin-right: 0;
+}
+
+.customer-center-call {
+    position: fixed;
+    top: 128px;
+    right: 0;
+}
+
+.speed-test-call {
+    position: fixed;
+    top: 196px;
+    right: 0;
+    background-color: #dc3545;
+}
+
+.right-floating-call-icon {
+    font-size: 2.4rem;
 }
