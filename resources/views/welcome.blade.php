@@ -128,7 +128,7 @@
                                 profissionais.</p>
 
                             <div>
-                                <p class="plan-speed">100<span>Mbps</span> </p>
+                                <p class="plan-speed">160<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>85,00</p>
                                 <div class="plan-cta">
                                     <a onclick="sendMegaZapMessage('Quero Contratar 80Mbps!')"

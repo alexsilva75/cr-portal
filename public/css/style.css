@@ -460,6 +460,10 @@
 
 .features-dedicated-plan {
     padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 
 .features-dedicated-plan:hover {
