@@ -6,7 +6,7 @@
         flex-wrap: wrap;
         background-size: cover;
         height: 440px;
-  
+
     }
 
     .heading-primary {
@@ -118,7 +118,8 @@
         max-width: 380px;
     }
 
-    .features-plans {
+    .features-plans,
+    .dedicated-plan-container {
         flex-direction: row;
     }
 

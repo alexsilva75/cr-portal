@@ -426,6 +426,60 @@
         url("../img/optimal/woman-tablet-v.jpg");
 }
 
+.dedicated-plan-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    transition: all 0.5s;
+}
+
+.dedicated-plan-container:hover {
+    background-color: var(--dark-blue-tint);
+}
+.features-dedicated-plan-img {
+    background-image: linear-gradient(
+            to bottom right,
+            rgba(2, 43, 58, 0.3),
+            rgba(2, 43, 58, 0.5)
+        ),
+        url("../img/business-plan.jpg");
+    min-width: 36rem;
+    min-height: 42rem;
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: 9px;
+    border-top-left-radius: 9px;
+}
+.dedicated-plan-subheading {
+    text-transform: uppercase;
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin: 0 0 1.2rem 0;
+    text-align: center;
+}
+
+.features-dedicated-plan {
+    padding: 2rem 4rem;
+}
+
+.features-dedicated-plan:hover {
+}
+
+.dedicated-plan-speed {
+    font-size: 7.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.plan-desc-list {
+    list-style: none;
+}
+
+.plan-desc-list li {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+}
+
 .plan-description {
     flex: 2.8;
     padding: 1.8rem;

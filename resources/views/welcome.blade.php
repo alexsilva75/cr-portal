@@ -163,6 +163,35 @@
                     </figure>
                 </div>
             </div>
+
+            <p class="subheading">Para Quem precisa de Mais</p>
+            <div class="container">
+                <div class="dedicated-plan-container flex-justify-space-between border-radius-sm box-shadow-sm">
+                    <div class="features-dedicated-plan-img">
+
+                    </div>
+                    <div class="features-dedicated-plan">
+                        <p class="dedicated-plan-subheading">UNIVERSE EXTREME</p>
+                        <p class="dedicated-plan-speed">400MB</p>
+                        <p>
+                            <ul class="plan-desc-list">
+                                <li>
+                                    <i class="bi bi-check-square-fill"></i>&nbsp;Link dedicado Up/Down
+                                </li>
+                                <li><i class="bi bi-check-square-fill"></i>&nbsp;Perfeito para quem trabalha com Streaming</li>
+                                <li><i class="bi bi-check-square-fill"></i>&nbsp;IP Público</li>
+                                <li><i class="bi bi-check-square-fill"></i>&nbsp;Roteador Wi-Fi Gigabit inteiramente GRÁTIS</li>
+                            </ul>
+
+                        </p>
+                        <div class="plan-cta">
+                            <a onclick="sendMegaZapMessage('Quero Contratar 120Mbps!')"
+                                class="btn btn-plan">Quero contratar
+                                &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {{-- <div class="features-pre-paid">
                 <p class="subheading">Não quer assinatura?</p>
                 <h3 class="heading-tertiary">Confira nossos pacotes pré-pagos</h3>

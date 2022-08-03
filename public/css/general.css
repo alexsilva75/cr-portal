@@ -20,7 +20,7 @@ Default: 1
  #ccd5d8
  #678089
 
-- Shades: 
+- Shades:
 #720d08
 
 - Accents:
@@ -187,4 +187,16 @@ a {
 
 .my-h3 {
     margin: 3.2rem 0 2.4rem 0;
+}
+
+.flex-justify-space-between {
+    justify-content: space-between !important;
+}
+
+.border-radius-sm {
+    border-radius: 9px !important;
+}
+
+.box-shadow-sm {
+    box-shadow: 4px 4px 8px rgb(0 0 0 / 10%) !important;
 }
