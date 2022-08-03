@@ -173,11 +173,13 @@
                     <div class="features-dedicated-plan">
                         <p class="dedicated-plan-subheading">UNIVERSE EXTREME</p>
                         <p class="dedicated-plan-speed">400MB</p>
+                        <p class="plan-desc-p">O Nosso Plano Corporativo</p>
                         <p>
                             <ul class="plan-desc-list">
                                 <li>
                                     <i class="bi bi-check-square-fill"></i>&nbsp;Link dedicado Up/Down
                                 </li>
+
                                 <li><i class="bi bi-check-square-fill"></i>&nbsp;Perfeito para quem trabalha com Streaming</li>
                                 <li><i class="bi bi-check-square-fill"></i>&nbsp;IP Público</li>
                                 <li><i class="bi bi-check-square-fill"></i>&nbsp;Roteador Wi-Fi Gigabit inteiramente GRÁTIS</li>
