@@ -136,6 +136,16 @@
         background-position: top;
     }
 
+    .features-dedicated-plan-img {
+        min-width: 36rem;
+        min-height: 42rem;
+        background-size: cover;
+        background-position: center;
+        border-bottom-left-radius: 9px;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 0;
+    }
+
     .btn-plan:link,
     .btn-plan:visited {
         padding: 0.8rem 1rem;
@@ -260,6 +270,11 @@
                 rgba(2, 43, 58, 0.5)
             ),
             url("../img/optimal/woman-tablet-h.jpg");
+    }
+
+    .features-dedicated-plan-img {
+        min-width: 52rem;
+        min-height: 42rem;
     }
 
     .footer .social {
