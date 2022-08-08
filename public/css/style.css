@@ -752,6 +752,11 @@
     outline: none;
 }
 
+.form-select {
+    display: block;
+    padding: 1rem;
+    background-color: #fff;
+}
 .btn-contact-send {
     background-color: #00000000;
     border: 2px solid #fff;
@@ -980,4 +985,41 @@
 
 .right-floating-call-icon {
     font-size: 2.4rem;
+}
+
+.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.hide {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #000000aa;
+    top: 0;
+    transition: all 0.5s;
+    /* opacity: 0;
+    pointer-events: none;
+    visibility: hidden; */
+    z-index: 1;
+}
+
+.modal {
+    border-radius: 9px;
+    background-color: #fff;
+    padding: 2rem;
+    margin: 4rem auto;
+}
+
+.subscription-form-container {
+    /* width: 80rem; */
+    z-index: 2;
 }

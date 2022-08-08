@@ -83,8 +83,8 @@
 
                     <p class="features-text">
                         Nossos planos fornecem alta velocidade e estabilidade, para que você possa trabalhar,
-                        estudar e se divertir à vontade, sem limite de tráfego e com velocidades que variam de 40Mbps a
-                        120Mbps.
+                        estudar e se divertir à vontade, sem limite de tráfego e com velocidades que variam de 60Mbps a
+                        350Mbps.
                     </p>
                 </div>
 
@@ -107,15 +107,24 @@
                                 em home office.</p>
 
                             <div>
+
                                 <p class="plan-speed">60<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>65,00</p>
                                 <div class="plan-cta">
-                                    <a onclick="sendMegaZapMessage('Quero Contratar 40Mbps!')"
+                                    <a onclick="showModalForm()"
                                         class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
 
                         </div>
+
+                        <script>
+// function showModalForm(e) {
+//     console.log("Hi", e);
+//     const modalEl = document.querySelector(".overlay");
+//     modalEl.classList.add("show");
+// }
+                        </script>
                     </figure>
 
                     <figure class="features-plan ">
@@ -131,7 +140,7 @@
                                 <p class="plan-speed">160<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>85,00</p>
                                 <div class="plan-cta">
-                                    <a onclick="sendMegaZapMessage('Quero Contratar 80Mbps!')"
+                                    <a onclick="showModalForm()"
                                         class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
@@ -153,7 +162,7 @@
                                 <p class="plan-price"><span>R$</span>105,00</p>
 
                                 <div class="plan-cta">
-                                    <a onclick="sendMegaZapMessage('Quero Contratar 120Mbps!')"
+                                    <a onclick="showModalForm"
                                         class="btn btn-plan">Quero contratar
                                         &raquo;</a>
                                 </div>
@@ -187,7 +196,7 @@
 
                         </p>
                         <div class="plan-cta">
-                            <a onclick="sendMegaZapMessage('Quero Contratar 120Mbps!')"
+                            <a onclick="showModalForm"
                                 class="btn btn-plan">Quero contratar
                                 &raquo;</a>
                         </div>
@@ -273,7 +282,7 @@
                 </div>
 
 
-                <div class="contact-form-container">
+                <div  class="contact-form-container">
 
                     <p class="subheading">Dúvidas?</p>
                     <h2 class="heading-secondary">Fale Conosco!</h2>
@@ -319,11 +328,14 @@
 
         @endcomponent
 
+
     </main>
 
     @component('components.footer')
 
     @endcomponent
+
+
 
     @endsection
 

@@ -81,6 +81,7 @@ html {
 }
 
 body {
+    position: relative;
     font-family: "Inter", sans-serif;
     line-height: 1;
     color: var(--gray-dark-blue);
@@ -120,6 +121,9 @@ a {
     transform: translateY(-4px);
 }
 
+.btn-primary {
+    background-color: var(--primary);
+}
 .heading-primary {
     font-size: 3.2rem;
     line-height: 0.9;
@@ -199,4 +203,12 @@ a {
 
 .box-shadow-sm {
     box-shadow: 4px 4px 8px rgb(0 0 0 / 10%) !important;
+}
+
+.m-sm {
+    margin: 8px !important;
+}
+
+.m-md {
+    margin: 32px !important;
 }

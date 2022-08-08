@@ -140,3 +140,24 @@ function sendMegaZapMessage(textMessage) {
 
     WBOTsendMessage();
 }
+
+function showModalForm() {
+    //alert("Hi");
+    console.log("Showing modal");
+    const overlayEl = document.querySelector(".overlay");
+    //console.log("Overlay", modalEl);
+    overlayEl.classList.remove("hide");
+    overlayEl.classList.add("show");
+
+    //overlayEl.addEventListener("click", hideModalForm);
+    const modalEl = document.getElementById("subscription");
+    modalEl.scrollIntoView();
+}
+
+function hideModalForm(event) {
+    event.stopPropagation();
+    const overlayEl = document.querySelector(".overlay");
+    //console.log("Overlay", modalEl);
+    overlayEl.classList.add("hide");
+    overlayEl.classList.remove("show");
+}
