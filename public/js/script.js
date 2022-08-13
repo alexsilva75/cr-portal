@@ -145,17 +145,22 @@ function showModalForm() {
     //alert("Hi");
     console.log("Showing modal");
     const overlayEl = document.querySelector(".overlay");
+
     //console.log("Overlay", modalEl);
     overlayEl.classList.remove("hide");
     overlayEl.classList.add("show");
 
-    //overlayEl.addEventListener("click", hideModalForm);
+    overlayEl.addEventListener("click", hideModalForm);
     const modalEl = document.getElementById("subscription");
+    modalEl.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
     modalEl.scrollIntoView();
+    //loadMap();
 }
 
 function hideModalForm(event) {
-    event.stopPropagation();
+    //event.stopPropagation();
     const overlayEl = document.querySelector(".overlay");
     //console.log("Overlay", modalEl);
     overlayEl.classList.add("hide");

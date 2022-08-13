@@ -212,3 +212,7 @@ a {
 .m-md {
     margin: 32px !important;
 }
+
+.normal-text {
+    font-size: 1.4rem;
+}
