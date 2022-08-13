@@ -45,7 +45,7 @@ crossorigin=""></script>
     </script>
 
     <script src="{{ asset('js/script.js') }}"></script>
-    
+
     <script type="text/javascript" charset="UTF-8">
         let ccNbMainContainerEl = null;
         document.addEventListener('DOMContentLoaded', function() {
@@ -100,20 +100,20 @@ crossorigin=""></script>
     {{-- <script src="{{ asset('js/cr-chat.js')}}">    </script> --}}
 
     <!-- Messenger Plugin de bate-papo Code -->
-    {{-- <div id="fb-root"></div> --}}
+    <div id="fb-root"></div>
 
     <!-- Your Plugin de bate-papo code -->
-    {{-- <div id="fb-customer-chat" class="fb-customerchat">
-    </div> --}}
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
 
-    {{-- <script>
+    <script>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "471056360042438");
       chatbox.setAttribute("attribution", "biz_inbox");
-    </script> --}}
+    </script>
 
     <!-- Your SDK code -->
-    {{-- <script>
+    <script>
       window.fbAsyncInit = function() {
         FB.init({
           xfbml            : true,
@@ -128,7 +128,7 @@ crossorigin=""></script>
         js.src = 'https://connect.facebook.net/pt_BR/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    </script> --}}
+    </script>
 
 
 
