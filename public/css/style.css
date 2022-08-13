@@ -1022,7 +1022,7 @@
 
 .subscription-form-container {
     /* width: 80rem; */
-    z-index: 2;
+    z-index: 11;
 }
 
 .map {
