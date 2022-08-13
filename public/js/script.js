@@ -166,3 +166,13 @@ function hideModalForm(event) {
     overlayEl.classList.add("hide");
     overlayEl.classList.remove("show");
 }
+
+function addButtonEventListeners() {
+    const planButtonsList = document.querySelectorAll(".btn-plan");
+
+    planButtonsList.forEach((buttonItem) => {
+        buttonItem.addEventListener("click", showModalForm);
+    });
+}
+
+addButtonEventListeners();

@@ -111,7 +111,8 @@
                                 <p class="plan-speed">60<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>65,00</p>
                                 <div class="plan-cta">
-                                    <a onclick="showModalForm()"
+                                    <a
+                                    {{-- onclick="showModalForm()" --}}
                                         class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
@@ -140,7 +141,8 @@
                                 <p class="plan-speed">160<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>85,00</p>
                                 <div class="plan-cta">
-                                    <a onclick="showModalForm()"
+                                    <a
+                                    {{-- onclick="showModalForm()" --}}
                                         class="btn btn-plan">Quero contratar &raquo;</a>
                                 </div>
                             </div>
@@ -162,7 +164,8 @@
                                 <p class="plan-price"><span>R$</span>105,00</p>
 
                                 <div class="plan-cta">
-                                    <a onclick="showModalForm()"
+                                    <a
+                                    {{-- onclick="showModalForm()" --}}
                                         class="btn btn-plan">Quero contratar
                                         &raquo;</a>
                                 </div>
@@ -196,7 +199,8 @@
 
                         </p>
                         <div class="plan-cta">
-                            <a onclick="showModalForm()"
+                            <a
+                            {{-- onclick="showModalForm()" --}}
                                 class="btn btn-plan">Quero contratar
                                 &raquo;</a>
                         </div>
