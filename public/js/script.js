@@ -142,7 +142,7 @@ function sendMegaZapMessage(textMessage) {
 }
 
 function showModalForm() {
-    //alert("Hi");
+    alert("Hi");
     console.log("Showing modal");
     const overlayEl = document.querySelector(".overlay");
 
