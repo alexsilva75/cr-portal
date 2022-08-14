@@ -64,7 +64,7 @@
     pointer-events: auto;
     visibility: visible;
     transform: translateX(0);
-    z-index: 999;
+    z-index: 1;
 }
 
 .btn-mobile-nav,
@@ -73,7 +73,7 @@
     border: none;
     background: none;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 4;
 }
 
 .icon-mobile-nav,
@@ -775,7 +775,7 @@
     top: 8.4rem;
     color: #fff;
     right: 0;
-    z-index: 970;
+    z-index: 10;
     padding: 3.2rem;
     border-bottom-left-radius: 11px;
     transition: all 0.5s;
@@ -910,7 +910,7 @@
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    z-index: 1009;
+    z-index: 3;
 }
 
 .open-privacy {
@@ -932,7 +932,7 @@
     color: var(--gray-dark-blue);
     position: relative;
     border-radius: 11px;
-    z-index: 1010;
+    z-index: 5;
 }
 
 .privacy-policy ul {
@@ -1009,7 +1009,7 @@
     /* opacity: 0;
     pointer-events: none;
     visibility: hidden; */
-    z-index: 1;
+    z-index: 6;
 }
 
 .modal {
@@ -1017,12 +1017,12 @@
     background-color: #fff;
     padding: 2rem;
     margin: 4rem auto;
-    z-index: 10;
+    z-index: 7;
 }
 
 .subscription-form-container {
     /* width: 80rem; */
-    z-index: 11;
+    z-index: 8;
 }
 
 .map {
