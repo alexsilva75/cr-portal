@@ -141,6 +141,20 @@ function sendMegaZapMessage(textMessage) {
     WBOTsendMessage();
 }
 
+const deviceType = () => {
+    const ua = navigator.userAgent;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+        return "tablet";
+    } else if (
+        /Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+            ua
+        )
+    ) {
+        return "mobile";
+    }
+    return "desktop";
+};
+
 function showModalForm() {
     //alert("Hi");
     console.log("Showing modal");
@@ -150,7 +164,12 @@ function showModalForm() {
     overlayEl.classList.remove("hide");
     overlayEl.classList.add("show");
 
-    overlayEl.addEventListener("click", hideModalForm);
+    if (deviceType() === "desktop") {
+        overlayEl.addEventListener("click", hideModalForm);
+    } else {
+        overlayEl.addEventListener("touchstart", hideModalForm);
+    }
+
     const modalEl = document.getElementById("subscription");
     modalEl.addEventListener("click", function (event) {
         event.stopPropagation();
@@ -171,8 +190,11 @@ function addButtonEventListeners() {
     const planButtonsList = document.querySelectorAll(".btn-plan");
 
     planButtonsList.forEach((buttonItem) => {
-        buttonItem.addEventListener("click", showModalForm);
-        //buttonItem.addEventListener("touchstart", showModalForm);
+        if (deviceType() === "desktop") {
+            buttonItem.addEventListener("click", showModalForm);
+        } else {
+            buttonItem.addEventListener("touchstart", showModalForm);
+        }
     });
 }
 
