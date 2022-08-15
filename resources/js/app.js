@@ -51,13 +51,21 @@ createApp({
                 const crd = pos.coords;
                 this.setLocation(crd.latitude, crd.longitude);
             };
-            function error() {
+            const error = () => {
                 //-12.5485687, -38.7092958
                 this.setLocation(-12.5485687, -38.7092958);
-            }
+            };
 
-            error.bind(this);
-            navigator.geolocation.getCurrentPosition(success, error, options);
+            //error.bind(this);
+            try {
+                navigator.geolocation.getCurrentPosition(
+                    success,
+                    error,
+                    options
+                );
+            } catch (error) {
+                error();
+            }
         },
         setLocation(lat, lng) {
             console.log("Setting Location: ", lat, lng);

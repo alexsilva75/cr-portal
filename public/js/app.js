@@ -2122,13 +2122,17 @@ createApp({
         _this.setLocation(crd.latitude, crd.longitude);
       };
 
-      function error() {
+      var error = function error() {
         //-12.5485687, -38.7092958
-        this.setLocation(-12.5485687, -38.7092958);
-      }
+        _this.setLocation(-12.5485687, -38.7092958);
+      }; //error.bind(this);
 
-      error.bind(this);
-      navigator.geolocation.getCurrentPosition(success, error, options);
+
+      try {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+      } catch (error) {
+        error();
+      }
     },
     setLocation: function setLocation(lat, lng) {
       var _this2 = this;
