@@ -155,8 +155,9 @@ const deviceType = () => {
     return "desktop";
 };
 
-function showModalForm() {
+function showModalForm(event) {
     //alert("Hi");
+    event.preventDefault();
     console.log("Showing modal");
     const overlayEl = document.querySelector(".overlay");
 
