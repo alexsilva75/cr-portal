@@ -2177,12 +2177,12 @@ createApp({
                   whatsapp: _this3.whatsapp,
                   lat: _this3.lat,
                   lng: _this3.lng
-                };
-                console.log("Request Body: ", requestBody);
-                _context.next = 5;
+                }; //console.log("Request Body: ", requestBody);
+
+                _context.next = 4;
                 return window.axios.post("http://localhost:8000/api/v1/subscription", requestBody);
 
-              case 5:
+              case 4:
                 response = _context.sent;
                 console.log("Response: ", response);
 
@@ -2194,7 +2194,7 @@ createApp({
 
                 hideModalForm();
 
-              case 9:
+              case 8:
               case "end":
                 return _context.stop();
             }

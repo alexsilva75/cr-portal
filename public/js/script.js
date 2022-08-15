@@ -172,7 +172,7 @@ function addButtonEventListeners() {
 
     planButtonsList.forEach((buttonItem) => {
         buttonItem.addEventListener("click", showModalForm);
-        buttonItem.addEventListener("touchstart", showModalForm);
+        //buttonItem.addEventListener("touchstart", showModalForm);
     });
 }
 

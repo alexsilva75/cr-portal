@@ -106,7 +106,7 @@ createApp({
                 lng: this.lng,
             };
 
-            console.log("Request Body: ", requestBody);
+            //console.log("Request Body: ", requestBody);
             const response = await window.axios.post(
                 "http://localhost:8000/api/v1/subscription",
                 requestBody
