@@ -175,6 +175,10 @@ function showModalForm(event) {
     modalEl.addEventListener("click", function (event) {
         event.stopPropagation();
     });
+
+    modalEl.addEventListener("touchstart", function (event) {
+        event.stopPropagation();
+    });
     modalEl.scrollIntoView();
     //loadMap();
 }
