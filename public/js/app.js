@@ -2125,14 +2125,9 @@ createApp({
       var error = function error() {
         //-12.5485687, -38.7092958
         _this.setLocation(-12.5485687, -38.7092958);
-      }; //error.bind(this);
+      };
 
-
-      try {
-        navigator.geolocation.getCurrentPosition(success, error, options);
-      } catch (error) {
-        error();
-      }
+      navigator.geolocation.getCurrentPosition(success, error, options);
     },
     setLocation: function setLocation(lat, lng) {
       var _this2 = this;
@@ -2143,7 +2138,7 @@ createApp({
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
       var marker = L.marker([lat, lng]);
-      marker.addTo(map).bindPopup("Você mora aqui.").openPopup();
+      marker.addTo(map).bindPopup("Confirmação de endereço.").openPopup();
       map.addEventListener("click", function (event) {
         //console.log("This is a map event: ", event);
         var lat = event.latlng.lat;

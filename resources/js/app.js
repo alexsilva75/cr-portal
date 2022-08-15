@@ -56,16 +56,7 @@ createApp({
                 this.setLocation(-12.5485687, -38.7092958);
             };
 
-            //error.bind(this);
-            try {
-                navigator.geolocation.getCurrentPosition(
-                    success,
-                    error,
-                    options
-                );
-            } catch (error) {
-                error();
-            }
+            navigator.geolocation.getCurrentPosition(success, error, options);
         },
         setLocation(lat, lng) {
             console.log("Setting Location: ", lat, lng);
@@ -77,7 +68,7 @@ createApp({
             }).addTo(map);
 
             let marker = L.marker([lat, lng]);
-            marker.addTo(map).bindPopup("Você mora aqui.").openPopup();
+            marker.addTo(map).bindPopup("Confirmação de endereço.").openPopup();
 
             map.addEventListener("click", (event) => {
                 //console.log("This is a map event: ", event);
