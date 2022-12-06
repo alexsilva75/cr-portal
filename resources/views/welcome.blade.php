@@ -108,7 +108,7 @@
 
                             <div>
 
-                                <p class="plan-speed">60<span>Mbps</span> </p>
+                                <p class="plan-speed">80<span>Mbps</span> </p>
                                 <p class="plan-price"><span>R$</span>65,00</p>
                                 <div class="plan-cta">
                                     <a
