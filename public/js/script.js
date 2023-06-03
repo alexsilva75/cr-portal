@@ -86,7 +86,7 @@ const sendContactMail = async function (e) {
     const toastTitle = document.getElementById("toast-title");
     const toastMessage = document.getElementById("toast-message");
 
-    const response = await fetch("https://portalcrtelecom.com.br/api/v1/send", {
+    const response = await fetch("https://crtl.net.br/api/v1/send", {
         method: "POST",
         body: formData,
     });
