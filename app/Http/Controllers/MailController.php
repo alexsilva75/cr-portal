@@ -21,7 +21,7 @@ class MailController extends Controller
 
 
         if (mail(
-            'contato@portalcrtelecom.com.br',
+            'contato@crtl.net.br',
             '=?utf-8?B?' . base64_encode('Formulário de contato - Portal CR Telecom') . '?=',
             "{$data['nome']} \n {$data['email']} \n {$data['fone']} \n {$data['mensagem']}",
             'From: form-contato@portalcrtelecom.com.br' . "\r\n"
